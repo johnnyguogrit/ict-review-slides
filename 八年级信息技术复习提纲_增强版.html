@@ -1,0 +1,2676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>八年级信息技术复习提纲 - 物联网</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   CSS CUSTOM PROPERTIES (TECH GREEN THEME)
+   =========================================== */
+:root {
+    /* Colors — IoT Tech Green Palette */
+    --bg-dark: #0a1a0f;
+    --bg-darker: #050d08;
+    --accent-green: #00ff88;
+    --accent-cyan: #00d4ff;
+    --accent-blue: #4361ee;
+    --accent-orange: #ff6b35;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-dim: rgba(255, 255, 255, 0.3);
+
+    /* Glow Effects */
+    --glow-green: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 136, 0.3);
+    --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3);
+
+    /* Typography */
+    --font-display: 'Clash Display', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --title-size: clamp(2rem, 6vw, 5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.2rem, 3vw, 2rem);
+    --body-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    --small-size: clamp(0.7rem, 1.2vw, 0.9rem);
+
+    /* Spacing */
+    --slide-padding: clamp(1.5rem, 4vw, 4rem);
+    --content-gap: clamp(1rem, 2vw, 2rem);
+    --element-gap: clamp(0.5rem, 1vw, 1rem);
+
+    /* Animation */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-normal: 0.6s;
+}
+
+/* ===========================================
+   BASE STYLES & RESET
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* ===========================================
+   VIEWPORT FITTING
+   =========================================== */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 100%;
+    overflow: hidden;
+    padding: var(--slide-padding);
+}
+
+:root {
+    --title-size: clamp(1.5rem, 5vw, 4rem);
+    --h2-size: clamp(1.25rem, 3.5vw, 2.5rem);
+    --h3-size: clamp(1rem, 2.5vw, 1.75rem);
+    --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
+    --small-size: clamp(0.65rem, 1vw, 0.875rem);
+    --slide-padding: clamp(1rem, 4vw, 4rem);
+    --content-gap: clamp(0.5rem, 2vw, 2rem);
+    --element-gap: clamp(0.25rem, 1vw, 1rem);
+}
+
+.card, .container, .content-box {
+    max-width: min(90vw, 1000px);
+    max-height: min(80vh, 700px);
+}
+
+.feature-list, .bullet-list {
+    gap: clamp(0.4rem, 1vh, 1rem);
+}
+
+.feature-list li, .bullet-list li {
+    font-size: var(--body-size);
+    line-height: 1.4;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+img, .image-container {
+    max-width: 100%;
+    max-height: min(50vh, 400px);
+    object-fit: contain;
+}
+
+/* Responsive */
+@media (max-height: 700px) {
+    :root {
+        --slide-padding: clamp(0.75rem, 3vw, 2rem);
+        --content-gap: clamp(0.4rem, 1.5vw, 1rem);
+        --title-size: clamp(1.25rem, 4.5vw, 2.5rem);
+        --h2-size: clamp(1rem, 3vw, 1.75rem);
+    }
+}
+
+@media (max-height: 600px) {
+    :root {
+        --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+        --content-gap: clamp(0.3rem, 1vw, 0.75rem);
+        --title-size: clamp(1.1rem, 4vw, 2rem);
+        --body-size: clamp(0.7rem, 1.2vw, 0.95rem);
+    }
+    .nav-dots, .keyboard-hint { display: none; }
+}
+
+@media (max-height: 500px) {
+    :root {
+        --slide-padding: clamp(0.4rem, 2vw, 1rem);
+        --title-size: clamp(1rem, 3.5vw, 1.5rem);
+        --h2-size: clamp(0.9rem, 2.5vw, 1.25rem);
+        --body-size: clamp(0.65rem, 1vw, 0.85rem);
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --title-size: clamp(1.25rem, 7vw, 2.5rem);
+    }
+    .grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+    html { scroll-behavior: auto; }
+    .particle, .scan-line { display: none; }
+}
+
+/* ===========================================
+   THEME STYLES
+   =========================================== */
+
+/* Circuit pattern background */
+.circuit-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+    background-size: clamp(30px, 4vw, 50px) clamp(30px, 4vw, 50px);
+    pointer-events: none;
+}
+
+/* Node particles */
+.node {
+    position: absolute;
+    width: clamp(4px, 0.5vw, 6px);
+    height: clamp(4px, 0.5vw, 6px);
+    background: var(--accent-green);
+    border-radius: 50%;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.node::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+}
+
+/* Progress bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+/* Navigation dots */
+.nav-dots {
+    position: fixed;
+    right: clamp(1rem, 2vw, 2rem);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    z-index: 100;
+}
+
+.nav-dot {
+    width: clamp(8px, 1vw, 12px);
+    height: clamp(8px, 1vw, 12px);
+    border-radius: 50%;
+    background: var(--text-dim);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot:hover { background: var(--accent-green); }
+.nav-dot.active {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    box-shadow: var(--glow-green);
+}
+
+/* Unit badge */
+.unit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 0.6rem);
+    padding: clamp(0.4rem, 0.8vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 212, 255, 0.2));
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-green);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--content-gap);
+}
+
+/* Slide titles */
+.slide-title {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--content-gap);
+    line-height: 1.2;
+}
+
+.slide-title .accent {
+    color: var(--accent-green);
+    text-shadow: var(--glow-green);
+}
+
+.slide-title .accent-cyan {
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+/* Content lists */
+.content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+.content-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(0.5rem, 1vw, 0.8rem);
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: clamp(0.5rem, 1vw, 0.8rem);
+    border-left: 2px solid rgba(0, 255, 136, 0.2);
+    transition: border-color 0.3s ease;
+}
+
+.content-list li:hover {
+    border-left-color: var(--accent-green);
+    color: var(--text-primary);
+}
+
+.content-list li::before {
+    content: '▹';
+    color: var(--accent-green);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* Two column layout */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    max-width: min(95vw, 1400px);
+}
+
+@media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+}
+
+.col-title {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+/* Info cards */
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.info-card-title {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+/* Keyword tag */
+.keyword {
+    display: inline-block;
+    padding: clamp(0.2rem, 0.5vw, 0.3rem) clamp(0.5rem, 1vw, 0.8rem);
+    background: rgba(0, 212, 255, 0.15);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    color: var(--accent-cyan);
+}
+
+/* Definition box */
+.definition-box {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 212, 255, 0.05));
+    border-left: 3px solid var(--accent-green);
+    padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    margin: clamp(0.8rem, 1.5vw, 1.2rem) 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.definition-box strong {
+    color: var(--accent-green);
+}
+
+/* Process steps */
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.step-num {
+    flex-shrink: 0;
+    width: clamp(32px, 4vw, 48px);
+    height: clamp(32px, 4vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+    color: var(--bg-dark);
+    font-family: var(--font-display);
+    font-size: var(--body-size);
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.step-text {
+    flex: 1;
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+}
+
+/* Feature grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 768px) {
+    .feature-grid { grid-template-columns: 1fr; }
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: var(--accent-green);
+    box-shadow: var(--glow-green);
+}
+
+.feature-icon {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.feature-title {
+    font-family: var(--font-display);
+    font-size: var(--body-size);
+    font-weight: 600;
+    color: var(--accent-green);
+    margin-bottom: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+
+.feature-desc {
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    color: var(--text-dim);
+}
+
+/* Table style */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--body-size);
+}
+
+.data-table th,
+.data-table td {
+    padding: clamp(0.6rem, 1.2vw, 1rem);
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.data-table th {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--accent-green);
+    background: rgba(0, 255, 136, 0.05);
+}
+
+.data-table td {
+    color: var(--text-secondary);
+}
+
+.data-table tr:hover td {
+    background: rgba(0, 255, 136, 0.03);
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--duration-normal) var(--ease-out-expo),
+                transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.slide.visible .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal:nth-child(1) { transition-delay: 0.1s; }
+.reveal:nth-child(2) { transition-delay: 0.2s; }
+.reveal:nth-child(3) { transition-delay: 0.3s; }
+.reveal:nth-child(4) { transition-delay: 0.4s; }
+.reveal:nth-child(5) { transition-delay: 0.5s; }
+.reveal:nth-child(6) { transition-delay: 0.6s; }
+
+/* ===========================================
+   EXAMPLE SLIDE STYLES
+   =========================================== */
+.example-slide {
+    background: linear-gradient(135deg, rgba(10, 26, 15, 0.98), rgba(8, 20, 30, 0.98));
+}
+
+.example-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.3rem, 0.6vw, 0.5rem);
+    padding: clamp(0.3rem, 0.6vw, 0.5rem) clamp(0.8rem, 1.5vw, 1.2rem);
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(0, 212, 255, 0.2));
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--content-gap);
+}
+
+.example-box {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid var(--accent-orange);
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    border-radius: 0 8px 8px 0;
+}
+
+.example-box-title {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--accent-orange);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.example-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin: clamp(1rem, 2vw, 2rem) 0;
+}
+
+.example-comparison-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.example-comparison-item.bad {
+    border-color: rgba(255, 107, 53, 0.3);
+}
+
+.example-comparison-item.good {
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+.example-label {
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.example-comparison-item.bad .example-label {
+    color: var(--accent-orange);
+}
+
+.example-comparison-item.good .example-label {
+    color: var(--accent-green);
+}
+
+/* ===========================================
+   QUIZ SLIDE STYLES
+   =========================================== */
+.quiz-slide {
+    background: linear-gradient(135deg, rgba(10, 26, 15, 0.98), rgba(8, 20, 30, 0.98));
+}
+
+.quiz-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 0.6rem);
+    padding: clamp(0.4rem, 0.8vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 212, 255, 0.2));
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-green);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.quiz-content {
+    max-height: calc(100vh - clamp(8rem, 15vh, 12rem));
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.quiz-progress {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--text-dim);
+}
+
+.quiz-progress-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.quiz-question {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2.2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: clamp(0.6rem, 1.2vw, 1rem);
+    line-height: 1.4;
+}
+
+.quiz-question-num {
+    color: var(--accent-green);
+    margin-right: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 0.8rem);
+    max-width: min(90vw, 800px);
+}
+
+.quiz-option {
+    padding: clamp(0.6rem, 1.2vw, 1rem);
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+.quiz-option:hover {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: var(--accent-green);
+}
+
+.quiz-option.selected {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: var(--accent-green);
+}
+
+.quiz-option.correct {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--accent-green);
+}
+
+.quiz-option.incorrect {
+    background: rgba(255, 107, 53, 0.2);
+    border-color: var(--accent-orange);
+}
+
+.quiz-option-letter {
+    flex-shrink: 0;
+    width: clamp(28px, 3.5vw, 36px);
+    height: clamp(28px, 3.5vw, 36px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-size: clamp(0.75rem, 1.3vw, 0.9rem);
+    font-weight: 700;
+    color: var(--accent-green);
+}
+
+.quiz-option.correct .quiz-option-letter {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--accent-green);
+    color: var(--bg-dark);
+}
+
+.quiz-option.incorrect .quiz-option-letter {
+    background: rgba(255, 107, 53, 0.2);
+    border-color: var(--accent-orange);
+    color: var(--bg-dark);
+}
+
+.quiz-option-text {
+    flex: 1;
+    font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+    color: var(--text-secondary);
+}
+
+.quiz-feedback {
+    margin-top: clamp(0.6rem, 1.2vw, 1rem);
+    padding: clamp(0.7rem, 1.5vw, 1.2rem);
+    border-radius: 8px;
+    display: none;
+    max-width: min(90vw, 800px);
+}
+
+.quiz-feedback.show {
+    display: block;
+}
+
+.quiz-feedback.correct {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.quiz-feedback.incorrect {
+    background: rgba(255, 107, 53, 0.1);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.quiz-feedback-title {
+    font-family: var(--font-display);
+    font-size: clamp(0.9rem, 2vw, 1.3rem);
+    font-weight: 600;
+    margin-bottom: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+
+.quiz-feedback.correct .quiz-feedback-title {
+    color: var(--accent-green);
+}
+
+.quiz-feedback.incorrect .quiz-feedback-title {
+    color: var(--accent-orange);
+}
+
+.quiz-feedback-text {
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.quiz-next-btn {
+    margin-top: clamp(0.6rem, 1.2vw, 1rem);
+    padding: clamp(0.6rem, 1.2vw, 1rem) clamp(2rem, 4vw, 3rem);
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+    border: none;
+    border-radius: 30px;
+    color: var(--bg-dark);
+    font-family: var(--font-display);
+    font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Quiz Score Screen */
+.quiz-score-screen {
+    text-align: center;
+    padding: clamp(1rem, 2vw, 2rem) 0;
+}
+
+.quiz-score-display {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--accent-green);
+    text-shadow: var(--glow-green);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.quiz-score-text {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.quiz-score-message {
+    font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+    color: var(--text-dim);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+    line-height: 1.4;
+}
+
+.quiz-score-actions {
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.quiz-retry-btn,
+.quiz-continue-btn {
+    padding: clamp(0.6rem, 1.2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+    border: none;
+    border-radius: 30px;
+    font-family: var(--font-display);
+    font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-retry-btn {
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+    color: var(--bg-dark);
+}
+
+.quiz-continue-btn {
+    background: transparent;
+    border: 2px solid var(--accent-green);
+    color: var(--accent-green);
+}
+
+.quiz-retry-btn:hover,
+.quiz-continue-btn:hover {
+    transform: translateY(-2px);
+}
+
+.quiz-retry-btn:hover {
+    box-shadow: var(--glow-green);
+}
+
+/* ===========================================
+   TITLE SLIDE STYLES
+   =========================================== */
+.title-slide {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title-main {
+    font-family: var(--font-display);
+    font-size: var(--title-size);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.title-main .neon-green {
+    color: var(--accent-green);
+    text-shadow: var(--glow-green);
+}
+
+.title-main .neon-cyan {
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.title-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+.title-meta {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meta-tag {
+    padding: clamp(0.4rem, 0.8vw, 0.6rem) clamp(1rem, 2vw, 1.5rem);
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-green);
+}
+
+/* ===========================================
+   UNIT SLIDE STYLES
+   =========================================== */
+.unit-slide {
+    justify-content: center;
+}
+
+.unit-number {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 12rem);
+    font-weight: 700;
+    color: rgba(0, 255, 136, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.unit-content {
+    position: relative;
+    z-index: 1;
+    max-width: min(90vw, 900px);
+}
+
+/* ===========================================
+   INLINE EDITING STYLES
+   =========================================== */
+.edit-hotzone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.edit-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10001;
+}
+
+.edit-toggle.show,
+.edit-toggle.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.edit-toggle:hover { transform: scale(1.1); }
+.edit-toggle.active { box-shadow: var(--glow-green); }
+
+.edit-hint {
+    position: fixed;
+    bottom: clamp(1rem, 2vw, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--text-dim);
+    padding: clamp(0.5rem, 1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.edit-toggle.active ~ .edit-hint { opacity: 1; }
+
+.editing [contenteditable="true"] {
+    outline: 2px dashed var(--accent-green);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.editing [contenteditable="true"]:focus {
+    outline: 2px solid var(--accent-cyan);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+/* ===========================================
+   CLOSING SLIDE
+   =========================================== */
+.closing-slide {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.closing-emoji {
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.closing-title {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    color: var(--accent-green);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.closing-text {
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+/* ===========================================
+   KEYBOARD HINT
+   =========================================== */
+.keyboard-hint {
+    position: fixed;
+    bottom: clamp(1rem, 2vw, 2rem);
+    right: clamp(1rem, 2vw, 2rem);
+    display: flex;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    font-family: var(--font-mono);
+    font-size: clamp(0.6rem, 1vw, 0.75rem);
+    color: var(--text-dim);
+    z-index: 100;
+}
+
+.key {
+    padding: clamp(0.2rem, 0.4vw, 0.3rem) clamp(0.5rem, 1vw, 0.7rem);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* IoT device icons */
+.iot-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(40px, 5vw, 50px);
+    height: clamp(40px, 5vw, 50px);
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 10px;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin-bottom: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+
+.layer-diagram {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+    max-width: min(90vw, 500px);
+    margin: 0 auto;
+}
+
+.layer {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(1rem, 2vw, 1.5rem);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+}
+
+.layer-icon {
+    flex-shrink: 0;
+    width: clamp(40px, 5vw, 50px);
+    height: clamp(40px, 5vw, 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+    border-radius: 10px;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+.layer-name {
+    font-family: var(--font-display);
+    font-size: var(--body-size);
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+.layer-desc {
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    color: var(--text-dim);
+}
+</style>
+</head>
+<body>
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Edit Hotzone & Toggle -->
+<div class="edit-hotzone" id="editHotzone" title="编辑模式"></div>
+<button class="edit-toggle" id="editToggle" title="编辑模式 (按 E)">✏️</button>
+
+<!-- Navigation Dots -->
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- Keyboard Hint -->
+<div class="keyboard-hint">
+    <span class="key">↑</span>
+    <span class="key">↓</span>
+    <span class="key">空格</span>
+    <span>导航</span>
+    <span class="key" style="margin-left: 0.5rem;">E</span>
+    <span>编辑</span>
+</div>
+
+<!-- ===========================================
+     SLIDE 1: Title Slide
+     =========================================== -->
+<section class="slide title-slide">
+    <div class="circuit-bg"></div>
+    <div class="node" style="top: 20%; left: 10%;"></div>
+    <div class="node" style="top: 30%; left: 30%;"></div>
+    <div class="node" style="top: 70%; left: 20%;"></div>
+    <div class="node" style="top: 60%; left: 80%;"></div>
+    <div class="node" style="top: 40%; left: 60%;"></div>
+
+    <div class="slide-content">
+        <h1 class="title-main reveal">
+            <span class="neon-green">八年级</span><br>
+            <span class="neon-cyan">信息技术</span><br>
+            <span style="color: var(--text-primary);">物联网复习提纲</span>
+        </h1>
+        <p class="title-subtitle reveal">物联网架构 · 感知层 · 网络层 · 物联应用 · 安全发展</p>
+        <div class="title-meta reveal">
+            <span class="meta-tag">6个单元</span>
+            <span class="meta-tag">40+ 知识点</span>
+            <span class="meta-tag">互动测验</span>
+            <span class="meta-tag">期末备考</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 2: Unit 1 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="circuit-bg"></div>
+    <span class="unit-number">01</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit One</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">初识物联网</span>
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            物联网定义、三层架构与核心特征
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 3: Unit 1 - 物联网定义
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">什么是<span class="accent">物联网</span>？</h2>
+        <div class="definition-box reveal" style="max-width: min(90vw, 1000px); margin: 0 auto;">
+            <strong>定义：</strong>通过各种传感器、二维码识读设备、射频识别设备、红外线感应器、定位系统和激光扫描器等信息传感设备，按约定的协议，将物品与互联网连接，进行信息交换和通信，以实现智能化识别、定位、跟踪、监控和管理。
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card" style="max-width: min(90vw, 1000px); margin: 0 auto;">
+                <span class="info-card-title">互联网 vs 物联网</span>
+                <p style="color: var(--text-secondary);">• <strong>互联网：</strong>注重信息的互联互通和共享</p>
+                <p style="color: var(--text-secondary);">• <strong>物联网：</strong>侧重对物品的感知和控制</p>
+                <p style="color: var(--text-dim); font-size: var(--small-size); margin-top: 0.5rem;">• 互联网是物联网的核心和基础</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 4: Unit 1 - 物联网三层架构
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">物联网<span class="accent">三层架构</span></h2>
+        <div class="layer-diagram reveal" style="max-width: min(90vw, 600px); margin: 0 auto;">
+            <div class="layer">
+                <div class="layer-icon">📡</div>
+                <div>
+                    <div class="layer-name">应用层</div>
+                    <div class="layer-desc">云计算、人工智能、大数据处理</div>
+                </div>
+            </div>
+            <div class="layer">
+                <div class="layer-icon">🌐</div>
+                <div>
+                    <div class="layer-name">网络层</div>
+                    <div class="layer-desc">有线通信、无线通信数据传输</div>
+                </div>
+            </div>
+            <div class="layer">
+                <div class="layer-icon">🔍</div>
+                <div>
+                    <div class="layer-name">感知层</div>
+                    <div class="layer-desc">传感器、二维码、GPS信息采集</div>
+                </div>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card" style="max-width: min(90vw, 800px); margin: 0 auto;">
+                <span class="info-card-title">物联网四大特征</span>
+                <div class="feature-grid" style="grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1vw, 1rem);">
+                    <div class="feature-item" style="padding: clamp(0.5rem, 1vw, 0.8rem);">
+                        <div class="feature-icon">👁️</div>
+                        <div class="feature-title">全面感知</div>
+                    </div>
+                    <div class="feature-item" style="padding: clamp(0.5rem, 1vw, 0.8rem);">
+                        <div class="feature-icon">📡</div>
+                        <div class="feature-title">可靠传递</div>
+                    </div>
+                    <div class="feature-item" style="padding: clamp(0.5rem, 1vw, 0.8rem);">
+                        <div class="feature-icon">🧠</div>
+                        <div class="feature-title">智能处理</div>
+                    </div>
+                    <div class="feature-item" style="padding: clamp(0.5rem, 1vw, 0.8rem);">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">精准控制</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 5: Unit 1 - 实例展示
+     =========================================== -->
+<section class="slide example-slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <div class="example-badge reveal">IoT应用实例</div>
+        <h2 class="slide-title reveal">物联网在我们身边</h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">🏠</div>
+                <div class="feature-title">智能家居</div>
+                <div class="feature-desc">智能音箱、智能灯具、扫地机器人</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">⌚</div>
+                <div class="feature-title">智能手表</div>
+                <div class="feature-desc">健康监测、运动追踪、消息提醒</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🚗</div>
+                <div class="feature-title">智能交通</div>
+                <div class="feature-desc">ETC不停车、智能导航、交通信号优化</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🏪</div>
+                <div class="feature-title">智能零售</div>
+                <div class="feature-desc">无人便利店、自助收银、智能货架</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🌾</div>
+                <div class="feature-title">智慧农业</div>
+                <div class="feature-desc">智能大棚、精准灌溉、无人机植保</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🏥</div>
+                <div class="feature-title">智慧医疗</div>
+                <div class="feature-desc">远程诊疗、智能药柜、健康监测</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 6: Unit 1 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit1">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第一单元 · 初识物联网</h2>
+        <div class="quiz-content" id="quiz-content-unit1"></div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 7: Unit 2 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="circuit-bg"></div>
+    <span class="unit-number">02</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Two</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">感知层</span>初体验
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            二维码、RFID、红外传感与多传感器融合
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 8: Unit 2 - 二维码识别
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">二维码</span>识别技术</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">编码原理</h3>
+                <div class="definition-box">
+                    <strong>二进制编码：</strong><br>
+                    <span style="color: var(--accent-orange);">■ 黑色 = 1</span><br>
+                    <span style="color: var(--text-dim);">□ 白色 = 0</span>
+                </div>
+                <h3 class="col-title" style="margin-top: 1rem;">特点</h3>
+                <ul class="content-list">
+                    <li>信息容量大</li>
+                    <li>识别速度快</li>
+                    <li>抗损性强</li>
+                    <li>多方向识读</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">安全措施</h3>
+                <ul class="content-list">
+                    <li>检查防篡改</li>
+                    <li>使用动态二维码</li>
+                    <li>控制访问权限</li>
+                    <li>限定应用范围</li>
+                    <li>融入防伪元素</li>
+                </ul>
+                <div class="example-box" style="margin-top: 1rem;">
+                    <div class="example-box-title">应用场景</div>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">支付码、健康码、产品溯源、门票验证</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 9: Unit 2 - RFID技术
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent-cyan">RFID</span> 射频识别技术</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">组成部分</h3>
+                <ul class="content-list">
+                    <li><strong>电子标签</strong> — 附着在物品上</li>
+                    <li><strong>读卡器</strong> — 读取标签信息</li>
+                    <li><strong>管理系统</strong> — 处理数据</li>
+                </ul>
+                <h3 class="col-title" style="margin-top: 1rem;">优势</h3>
+                <ul class="content-list">
+                    <li>非接触式识别</li>
+                    <li>批量快速读取</li>
+                    <li>强环境适应性</li>
+                    <li>数据动态可写</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">安全措施</h3>
+                <ul class="content-list">
+                    <li>加密传输</li>
+                    <li>访问控制</li>
+                    <li>信号干扰防护</li>
+                    <li>认证机制</li>
+                </ul>
+                <div class="info-card" style="margin-top: 1rem;">
+                    <span class="info-card-title">典型应用</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">仓库管理、物流追踪、ETC不停车、门禁系统</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 10: Unit 2 - 红外传感与多传感器融合
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">红外传感与<span class="accent">多传感器融合</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">红外传感技术</h3>
+                <ul class="content-list">
+                    <li><strong>类型：</strong>对射式、反射式</li>
+                    <li><strong>特点：</strong>非接触式感知</li>
+                </ul>
+                <div class="info-card">
+                    <span class="info-card-title">应用实例</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">• 测体温（额温枪）</p>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">• 人流量统计（比较传感器触发顺序判断方向）</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">多传感器融合</h3>
+                <div class="process-steps">
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 24px; height: 24px; font-size: 0.8rem;">1</span>
+                        <span class="step-text">数据采集</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 24px; height: 24px; font-size: 0.8rem;">2</span>
+                        <span class="step-text">数据预处理</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 24px; height: 24px; font-size: 0.8rem;">3</span>
+                        <span class="step-text">特征提取</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 24px; height: 24px; font-size: 0.8rem;">4</span>
+                        <span class="step-text">数据整合与决策</span>
+                    </div>
+                </div>
+                <div class="info-card" style="margin-top: 0.8rem;">
+                    <span class="info-card-title">融合类型</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">同类型融合、不同类型融合</p>
+                </div>
+                <div class="info-card" style="margin-top: 0.8rem;">
+                    <span class="info-card-title">优势</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">提升监测准确性、空间布局优化</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 11: Unit 2 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit2">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第二单元 · 感知层初体验</h2>
+        <div class="quiz-content" id="quiz-content-unit2"></div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 12: Unit 3 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="circuit-bg"></div>
+    <span class="unit-number">03</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Three</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">网络层</span>初体验
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            通信协议、蓝牙、Wi-Fi与MQTT技术
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 13: Unit 3 - 通信协议
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">TCP/IP协议栈与<span class="accent">通信协议</span></h2>
+        <table class="data-table reveal" style="max-width: min(90vw, 900px); margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>分层</th>
+                    <th>协议</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>应用层</td>
+                    <td>HTTP、MQTT、FTP</td>
+                    <td>应用服务</td>
+                </tr>
+                <tr>
+                    <td>传输层</td>
+                    <td>TCP、UDP</td>
+                    <td>端到端传输</td>
+                </tr>
+                <tr>
+                    <td>网际层</td>
+                    <td>IP</td>
+                    <td>路由寻址</td>
+                </tr>
+                <tr>
+                    <td>网络接口层</td>
+                    <td>物理媒介</td>
+                    <td>电缆、网线、无线</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="definition-box reveal" style="margin-top: var(--content-gap); max-width: min(90vw, 800px); margin-left: auto; margin-right: auto;">
+            <strong>MQTT协议特点：</strong>"说话少、频率高、设备多"，「发布—订阅」机制
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 14: Unit 3 - 蓝牙与Wi-Fi
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">蓝牙</span> vs <span class="accent-cyan">Wi-Fi</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">蓝牙技术</h3>
+                <ul class="content-list">
+                    <li><strong>距离：</strong>10米以内（近距离）</li>
+                    <li><strong>功耗：</strong>低功耗</li>
+                    <li><strong>连接：</strong>一对一或一对多</li>
+                </ul>
+                <div class="info-card">
+                    <span class="info-card-title">配对流程</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">打开蓝牙 → 搜索设备 → 发起连接 → 确认连接</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-title">应用</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">智能手表、手环、无线键鼠、共享单车</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">Wi-Fi技术</h3>
+                <ul class="content-list">
+                    <li><strong>距离：</strong>几十米到几千米</li>
+                    <li><strong>用途：</strong>无线局域网</li>
+                    <li><strong>最新：</strong>Wi-Fi7、Wi-Fi HaLow（物联网）</li>
+                </ul>
+                <div class="process-steps">
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 20px; height: 20px; font-size: 0.7rem;">1</span>
+                        <span class="step-text">搜索信号</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 20px; height: 20px; font-size: 0.7rem;">2</span>
+                        <span class="step-text">选择网络</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 20px; height: 20px; font-size: 0.7rem;">3</span>
+                        <span class="step-text">输入凭证验证</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 20px; height: 20px; font-size: 0.7rem;">4</span>
+                        <span class="step-text">获取IP连接</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 15: Unit 3 - MQTT技术
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">MQTT</span> 物联网通信协议</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">三个角色</h3>
+                <ul class="content-list">
+                    <li><strong>发布者</strong> — 发送数据的设备</li>
+                    <li><strong>服务器</strong> — 转发消息的中间件</li>
+                    <li><strong>订阅者</strong> — 接收数据的设备</li>
+                </ul>
+                <div class="info-card">
+                    <span class="info-card-title">SIoT</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">开源、免费的本地MQTT服务器软件</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">消息处理流程</h3>
+                <div class="process-steps">
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 20px; height: 20px; font-size: 0.7rem;">1</span>
+                        <span class="step-text">设备连接服务器</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 20px; height: 20px; font-size: 0.7rem;">2</span>
+                        <span class="step-text">订阅/发布消息</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 20px; height: 20px; font-size: 0.7rem;">3</span>
+                        <span class="step-text">服务器转发</span>
+                    </div>
+                </div>
+                <div class="definition-box" style="margin-top: 0.8rem;">
+                    <strong>部署方式：</strong>本地部署 / 租用远程 / 公共测试服务器
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 16: Unit 3 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit3">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第三单元 · 网络层初体验</h2>
+        <div class="quiz-content" id="quiz-content-unit3"></div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 17: Unit 4 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="circuit-bg"></div>
+    <span class="unit-number">04</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Four</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">物联网系统</span>实践
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            本地报警、远程反馈与远程控制应用
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 18: Unit 4 - 本地应用
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">温度超限<span class="accent">本地报警</span>系统</h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">🌡️</div>
+                <div class="feature-title">输入</div>
+                <div class="feature-desc">温度传感器实时监测</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">💻</div>
+                <div class="feature-title">计算</div>
+                <div class="feature-desc">主控板判断阈值</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🚨</div>
+                <div class="feature-title">输出</div>
+                <div class="feature-desc">超限启动报警</div>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card" style="max-width: min(90vw, 800px); margin: 0 auto;">
+                <span class="info-card-title">温度传感器分类</span>
+                <p style="color: var(--text-secondary);">• <strong>热电偶：</strong>工业使用</p>
+                <p style="color: var(--text-secondary);">• <strong>热敏电阻：</strong>智能家居应用</p>
+                <p style="color: var(--text-dim); font-size: var(--small-size); margin-top: 0.5rem;">体现边缘计算：靠近数据源就近处理</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 19: Unit 4 - 远程反馈与控制
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">远程<span class="accent">反馈</span>与<span class="accent-cyan">控制</span>系统</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">远程警示通知系统</h3>
+                <ul class="content-list">
+                    <li><strong>通信方式：</strong>MQTT技术</li>
+                    <li><strong>数据可视化：</strong></li>
+                </ul>
+                <div class="feature-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="feature-item" style="padding: clamp(0.5rem, 1vw, 0.8rem);">
+                        <div class="feature-title" style="font-size: var(--small-size);">📈 折线图</div>
+                        <div class="feature-desc" style="font-size: clamp(0.6rem, 1vw, 0.8rem);">变化趋势</div>
+                    </div>
+                    <div class="feature-item" style="padding: clamp(0.5rem, 1vw, 0.8rem);">
+                        <div class="feature-title" style="font-size: var(--small-size);">🗺️ 地图标注</div>
+                        <div class="feature-desc" style="font-size: clamp(0.6rem, 1vw, 0.8rem);">分布查看</div>
+                    </div>
+                    <div class="feature-item" style="padding: clamp(0.5rem, 1vw, 0.8rem);">
+                        <div class="feature-title" style="font-size: var(--small-size);">🌡️ 热力图</div>
+                        <div class="feature-desc" style="font-size: clamp(0.6rem, 1vw, 0.8rem);">温度分布</div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">远程开窗系统</h3>
+                <ul class="content-list">
+                    <li><strong>发布者：</strong>发送开/关窗指令</li>
+                    <li><strong>服务器：</strong>保存并转发消息</li>
+                    <li><strong>订阅者：</strong>接收消息执行指令</li>
+                </ul>
+                <div class="warning-box" style="margin-top: 1rem;">
+                    <div class="warning-box-title" style="color: var(--accent-orange);">⚠️ 安全风险</div>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">软件漏洞、异常操作、数据泄露、设备故障、物理攻击</p>
+                </div>
+                <div class="definition-box" style="margin-top: 0.8rem;">
+                    <strong>安全认证：</strong>实体认证、消息认证
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 20: Unit 4 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit4">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第四单元 · 物联网系统实践</h2>
+        <div class="quiz-content" id="quiz-content-unit4"></div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 21: Unit 5 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="circuit-bg"></div>
+    <span class="unit-number">05</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Five</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">物联网</span>创新应用
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            健康、交通、农业、医疗领域的IoT应用
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 22: Unit 5 - 健康与交通应用
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">IoT在<span class="accent">健康</span>与<span class="accent-cyan">交通</span>领域的应用</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">🏥 健康领域</h3>
+                <ul class="content-list">
+                    <li><strong>穿戴设备：</strong>光学心率传感器、体温传感器、加速度计、陀螺仪</li>
+                </ul>
+                <div class="info-card">
+                    <span class="info-card-title">数据应用</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">• 可视化报告生成</p>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">• 个性化运动建议</p>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">• 异常健康预警</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">🚗 交通领域</h3>
+                <ul class="content-list">
+                    <li>道路状态实时监测</li>
+                    <li>智能信号调度与引导</li>
+                    <li>车辆与行人安全保障</li>
+                </ul>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>关键要求：</strong>分布式部署、多节点协同处理
+                </div>
+                <div class="info-card" style="margin-top: 0.8rem;">
+                    <span class="info-card-title">视频摄像头应用</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">车牌识别、车流统计、违章检测</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 23: Unit 5 - 农业与医疗应用
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">IoT在<span class="accent">农业</span>与<span class="accent-cyan">医疗</span>领域的应用</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">🌾 智慧农业</h3>
+                <ul class="content-list">
+                    <li>精准化生产管理</li>
+                    <li>智能化农机作业</li>
+                    <li>全产业链溯源管理</li>
+                </ul>
+                <div class="info-card">
+                    <span class="info-card-title">智能大棚</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);"><strong>感知层：</strong>土壤墒情、气象、光照传感器</p>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);"><strong>网络层：</strong>LoRa、NB-IoT低功耗广域网</p>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);"><strong>应用层：</strong>自动灌溉施肥、环境调控</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">🏥 智慧医疗</h3>
+                <ul class="content-list">
+                    <li>智能药品管理</li>
+                    <li>医疗设备追踪维护</li>
+                    <li>病房智能监控</li>
+                </ul>
+                <div class="info-card">
+                    <span class="info-card-title">智能药柜</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);"><strong>感知层：</strong>RFID标签、红外感应器、温湿度传感器</p>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);"><strong>网络层：</strong>Wi-Fi、NB-IoT、蓝牙</p>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);"><strong>应用层：</strong>自动盘点、补货提醒、用药追踪</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 24: Unit 5 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit5">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第五单元 · 物联网创新应用</h2>
+        <div class="quiz-content" id="quiz-content-unit5"></div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 25: Unit 6 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="circuit-bg"></div>
+    <span class="unit-number">06</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Six</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">物联网安全</span>与发展
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            安全风险识别、虚拟身份认证与风险防范
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 26: Unit 6 - 安全风险与防范
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">物联网<span class="accent">安全风险</span>与防范</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title" style="color: var(--accent-orange);">⚠️ 安全风险</h3>
+                <ul class="content-list">
+                    <li>设备被非法控制</li>
+                    <li>数据泄露和窃听</li>
+                    <li>隐私侵犯</li>
+                    <li>系统被攻击瘫痪</li>
+                    <li>物理设备损坏</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title" style="color: var(--accent-green);">🛡️ 防范措施</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>国家层面：</strong>制定法律法规、建立安全标准</p>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>企业层面：</strong>安全设计、漏洞修复、应急预案</p>
+                <p style="color: var(--text-secondary);"><strong>个人层面：</strong>强密码设置、定期更新、谨慎连接</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 27: Unit 6 - 身份认证
+     =========================================== -->
+<section class="slide">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">物联网中的<span class="accent">虚拟身份认证</span></h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">🔑</div>
+                <div class="feature-title">密码认证</div>
+                <div class="feature-desc">用户名+密码验证</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">👆</div>
+                <div class="feature-title">生物识别认证</div>
+                <div class="feature-desc">指纹、人脸、虹膜识别</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🔐</div>
+                <div class="feature-title">API认证</div>
+                <div class="feature-desc">应用程序接口密钥</div>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card" style="max-width: min(90vw, 800px); margin: 0 auto;">
+                <span class="info-card-title">认证机制</span>
+                <p style="color: var(--text-secondary); font-size: var(--small-size);">• <strong>实体认证：</strong>确认设备/用户身份</p>
+                <p style="color: var(--text-secondary); font-size: var(--small-size);">• <strong>消息认证：</strong>确保数据传输完整性和真实性</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 28: Unit 6 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit6">
+    <div class="circuit-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第六单元 · 物联网安全与发展</h2>
+        <div class="quiz-content" id="quiz-content-unit6"></div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 29: Closing
+     =========================================== -->
+<section class="slide closing-slide">
+    <div class="circuit-bg"></div>
+    <div class="node" style="top: 20%; left: 20%;"></div>
+    <div class="node" style="top: 40%; left: 70%;"></div>
+    <div class="node" style="top: 70%; left: 40%;"></div>
+
+    <div class="slide-content">
+        <div class="closing-emoji reveal-scale">🚀</div>
+        <h2 class="closing-title reveal">祝你考试顺利！</h2>
+        <p class="closing-text reveal">
+            祝你在信息技术期末考试中取得优异成绩！<br>
+            <span style="font-size: var(--small-size); color: var(--text-dim);">完成所有单元测验来检验学习成果吧！</span>
+        </p>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <span class="meta-tag" style="cursor: pointer;" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">回到顶部</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     JAVASCRIPT
+     =========================================== -->
+<script>
+/* ===========================================
+   QUIZ DATA
+   =========================================== */
+const quizData = {
+    unit1: [
+        {
+            question: "物联网的三层架构中，负责感知和采集物理世界信息的是哪一层？",
+            options: ["网络层", "应用层", "感知层", "传输层"],
+            correct: 2,
+            explanation: "感知层负责通过传感器、二维码、GPS等设备感知和采集物理世界中的各种信息。"
+        },
+        {
+            question: "下列哪项不是物联网的特征？",
+            options: ["全面感知", "可靠传递", "智能处理", "独立运行"],
+            correct: 3,
+            explanation: "物联网的特征包括全面感知、可靠传递、智能处理。独立运行不是物联网的必要特征。"
+        },
+        {
+            question: "二维码中黑色和白色分别代表什么？",
+            options: ["黑色=0，白色=1", "黑色=1，白色=0", "两者都代表1", "两者都代表0"],
+            correct: 1,
+            explanation: "二维码使用二进制编码，黑色代表1，白色代表0。"
+        },
+        {
+            question: "互联网与物联网的主要区别是什么？",
+            options: ["互联网更智能", "物联网侧重感知和控制", "互联网传输更快", "两者没有区别"],
+            correct: 1,
+            explanation: "互联网注重信息的互联互通和共享，物联网侧重对物品的感知和控制。"
+        },
+        {
+            question: "下列哪项是RFID技术的应用？",
+            options: ["纸质书籍阅读", "仓库管理", "音频播放", "图片显示"],
+            correct: 1,
+            explanation: "RFID技术广泛应用于仓库管理、物流追踪、ETC不停车等场景。"
+        },
+        {
+            question: "多传感器融合技术的主要优势是什么？",
+            options: ["降低成本", "提升监测准确性", "减少传感器数量", "简化系统架构"],
+            correct: 1,
+            explanation: "多传感器融合通过算法整合多个传感器数据，可以提升监测准确性和空间布局优化。"
+        },
+        {
+            question: "下列哪项不是红外传感器的类型？",
+            options: ["对射式", "反射式", "接触式", "分布式"],
+            correct: 2,
+            explanation: "红外传感器主要分为对射式和反射式，是基于红外线特性的非接触式感知。"
+        }
+    ],
+    unit2: [
+        {
+            question: "二维码的安全性措施不包括？",
+            options: ["检查防篡改", "动态二维码", "公开所有信息", "控制访问权限"],
+            correct: 2,
+            explanation: "二维码安全应控制访问权限和应用范围，不应公开所有信息。"
+        },
+        {
+            question: "RFID技术的组成部分不包括？",
+            options: ["电子标签", "读卡器", "显示屏", "管理系统"],
+            correct: 2,
+            explanation: "RFID系统由电子标签、读卡器和管理系统组成，不需要显示屏。"
+        },
+        {
+            question: "下列哪项是RFID技术的优势？",
+            options: ["需要接触才能读取", "只能逐个读取", "批量快速读取", "只能在近距离使用"],
+            correct: 2,
+            explanation: "RFID技术支持非接触式识别和批量快速读取是其主要优势。"
+        },
+        {
+            question: "测人流量的原理是比较什么？",
+            options: ["传感器的数量", "传感器接收信号的顺序", "传感器信号强度", "传感器的大小"],
+            correct: 1,
+            explanation: "通过比较不同传感器接收到信号的顺序来判断行人的移动方向。"
+        },
+        {
+            question: "多传感器融合的第一步是什么？",
+            options: ["特征提取", "数据整合", "数据采集", "决策应用"],
+            correct: 2,
+            explanation: "多传感器融合的流程是：数据采集→数据预处理→特征提取→数据整合→决策应用。"
+        },
+        {
+            question: "红外传感器属于什么类型的传感器？",
+            options: ["接触式传感器", "非接触式传感器", "有线传感器", "有线网络传感器"],
+            correct: 1,
+            explanation: "红外传感器是基于红外线特性的非接触式感知设备。"
+        },
+        {
+            question: "下列哪项是二维码的应用场景？",
+            options: ["模拟信号处理", "支付码", "声音录制", "视频播放"],
+            correct: 1,
+            explanation: "二维码广泛应用于支付码、健康码、产品溯源、门票验证等场景。"
+        }
+    ],
+    unit3: [
+        {
+            question: "MQTT是一个什么样的通信协议？",
+            options: ["重量级协议", "轻量级协议", "中等复杂度协议", "复杂协议"],
+            correct: 1,
+            explanation: "MQTT是轻量级通信协议，具有「说话少、频率高、设备多」的特点。"
+        },
+        {
+            question: "TCP/IP协议栈中，负责路由寻址的是哪一层？",
+            options: ["应用层", "传输层", "网际层", "网络接口层"],
+            correct: 2,
+            explanation: "网际层的IP协议负责路由寻址，确保数据发送到正确的目的地。"
+        },
+        {
+            question: "蓝牙通信的典型距离范围是多少？",
+            options: ["1米以内", "10米以内", "100米以内", "1千米以内"],
+            correct: 1,
+            explanation: "蓝牙是近距离无线通信技术，通信距离通常在10米以内。"
+        },
+        {
+            question: "Wi-Fi 7相比之前版本的改进是什么？",
+            options: ["降低功耗", "支持物联网设备", "减少频段", "缩短传输距离"],
+            correct: 1,
+            explanation: "Wi-Fi 7支持低功耗物联网设备，同时提供更高的传输速度。"
+        },
+        {
+            question: "MQTT的「发布—订阅」机制中，负责转发消息的是？",
+            options: ["发布者", "订阅者", "服务器", "网络设备"],
+            correct: 2,
+            explanation: "MQTT服务器负责查找订阅者并转发消息，是发布者和订阅者之间的桥梁。"
+        },
+        {
+            question: "Wi-Fi HaLow是什么？",
+            options: ["高速Wi-Fi", "面向物联网的低功耗Wi-Fi", "短距离Wi-Fi", "企业级Wi-Fi"],
+            correct: 1,
+            explanation: "Wi-Fi HaLow是支持低功耗物联网设备的Wi-Fi标准。"
+        },
+        {
+            question: "下列哪项是应用层协议？",
+            options: ["IP", "TCP", "HTTP", "以太网"],
+            correct: 2,
+            explanation: "HTTP、MQTT、FTP都属于应用层协议，IP是网际层协议，TCP是传输层协议，以太网是网络接口层物理协议。"
+        }
+    ],
+    unit4: [
+        {
+            question: "温度超限本地报警系统中，负责判断温度是否超过阈值的是？",
+            options: ["温度传感器", "主控板", "报警器", "显示器"],
+            correct: 1,
+            explanation: "主控板接收温度传感器数据，判断是否超过阈值并控制报警器。"
+        },
+        {
+            question: "常见的温度传感器类型不包括？",
+            options: ["热电偶", "热敏电阻", "数字温度计", "温度计"],
+            correct: 3,
+            explanation: "常见温度传感器有热电偶（工业用）和热敏电阻（智能家居用）。"
+        },
+        {
+            question: "远程温度警示系统使用的通信技术主要是？",
+            options: ["蓝牙", "Wi-Fi直连", "MQTT技术", "红外"],
+            correct: 2,
+            explanation: "远程系统通常使用MQTT技术进行通信，通过服务器转发数据。"
+        },
+        {
+            question: "数据可视化的三种方式不包括？",
+            options: ["折线图", "地图标注", "热力图", "饼状图"],
+            correct: 3,
+            explanation: "IoT数据可视化常用折线图（趋势）、地图标注（位置）、热力图（分布），一般不用饼状图。"
+        },
+        {
+            question: "远程开窗系统中，发送指令的角色是？",
+            options: ["订阅者", "服务器", "发布者", "接收者"],
+            correct: 2,
+            explanation: "在MQTT的发布-订阅机制中，发送指令的设备是发布者。"
+        },
+        {
+            question: "边缘计算的主要特点是？",
+            options: ["云端集中处理", "靠近数据源处理", "远程服务器处理", "分布式处理"],
+            correct: 1,
+            explanation: "边缘计算靠近数据源就近处理，减少数据传输延迟，提高响应速度。"
+        },
+        {
+            question: "物联网远程控制的安全风险不包括？",
+            options: ["软件漏洞", "设备故障", "系统升级", "物理攻击"],
+            correct: 2,
+            explanation: "设备故障属于硬件问题，不是安全风险。安全风险包括软件漏洞、异常操作、数据泄露、物理攻击等。"
+        }
+    ],
+    unit5: [
+        {
+            question: "穿戴式健康监测设备通常不包括什么传感器？",
+            options: ["光学心率传感器", "体温传感器", "血压传感器", "加速度计"],
+            correct: 2,
+            explanation: "常见穿戴设备有光学心率、体温、加速度计、陀螺仪等，一般不包含直接测血压的传感器。"
+        },
+        {
+            question: "智能交通系统必须具备什么能力？",
+            options: ["单一节点处理", "集中式处理", "分布式部署和多节点协同", "人工监控"],
+            correct: 2,
+            explanation: "智能交通系统必须具备分布式部署和多节点协同处理能力。"
+        },
+        {
+            question: "智能大棚使用什么低功耗广域网络技术？",
+            options: ["Wi-Fi", "蓝牙", "LoRa/NB-IoT", "以太网"],
+            correct: 2,
+            explanation: "智能大棚使用LoRa或NB-IoT等低功耗广域网络技术，适合远距离、低功耗传输。"
+        },
+        {
+            question: "智能药柜使用的感知层技术不包括？",
+            options: ["RFID电子标签", "红外感应器", "摄像头", "二维码"],
+            correct: 3,
+            explanation: "智能药柜使用RFID标签、红外感应器、温湿度传感器，通常不需要摄像头。"
+        },
+        {
+            question: "智慧农业的主要特点是什么？",
+            options: ["大量使用化肥", "精准化管理", "人工种植", "广撒网式管理"],
+            correct: 1,
+            explanation: "智慧农业实现精准化生产管理，智能化农机作业和全产业链溯源管理。"
+        },
+        {
+            question: "视频摄像头在交通领域的主要应用是？",
+            options: ["测量车速", "车牌识别", "流量统计", "以上都是"],
+            correct: 3,
+            explanation: "视频摄像头可进行图像获取和目标识别，包括车牌识别、车流统计、交通违章检测等。"
+        }
+    ],
+    unit6: [
+        {
+            question: "物联网安全风险不包括？",
+            options: ["设备被非法控制", "数据泄露", "系统运行正常", "隐私侵犯"],
+            correct: 2,
+            explanation: "系统运行正常是安全状态，不是安全风险。"
+        },
+        {
+            question: "个人层面的物联网安全防范措施不包括？",
+            options: ["设置强密码", "定期更新", "连接所有开放网络", "谨慎连接"],
+            correct: 2,
+            explanation: "个人应谨慎连接网络，不应连接所有开放网络，要选择安全可信的网络。"
+        },
+        {
+            question: "虚拟身份认证不包括哪种方式？",
+            options: ["密码认证", "生物识别", "API认证", "视频认证"],
+            correct: 3,
+            explanation: "虚拟身份认证主要包括密码认证、生物识别认证和API认证。"
+        },
+        {
+            question: "实体认证的主要作用是？",
+            options: ["美化界面", "确认身份合法性", "加快处理速度", "节省流量"],
+            correct: 1,
+            explanation: "实体认证通过可信凭证核验身份合法性，确保只有授权用户/设备可以访问。"
+        },
+        {
+            question: "消息认证的主要目的是什么？",
+            options: ["美化消息", "确认发送者身份", "加快传输速度", "减少流量"],
+            correct: 1,
+            explanation: "消息认证确保数据传输的完整性和真实性，验证消息来源的合法性。"
+        },
+        {
+            question: "下列哪项是物联网安全的国家层面措施？",
+            options: ["制定法律法规", "使用简单密码", "忽略漏洞", "随意连接设备"],
+            correct: 0,
+            explanation: "国家层面通过制定法律法规、建立安全标准来保障物联网安全。"
+        }
+    ]
+};
+
+/* ===========================================
+   QUIZ CLASS
+   =========================================== */
+const quizInstances = [];
+
+class QuizSystem {
+    constructor(containerId, unitName, questions, unitIndex) {
+        this.container = document.getElementById(containerId);
+        this.unitName = unitName;
+        this.questions = questions;
+        this.unitIndex = unitIndex;
+        this.currentQuestion = 0;
+        this.score = 0;
+        this.answered = false;
+        this.instanceIndex = quizInstances.length;
+        quizInstances.push(this);
+        this.init();
+    }
+
+    init() {
+        this.renderQuiz();
+    }
+
+    renderQuiz() {
+        if (this.currentQuestion >= this.questions.length) {
+            this.showScore();
+            return;
+        }
+
+        const q = this.questions[this.currentQuestion];
+        const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+        let html = `
+            <div class="quiz-content">
+            <div class="quiz-progress reveal">
+                <span>题目 ${this.currentQuestion + 1} / ${this.questions.length}</span>
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" style="width: ${((this.currentQuestion + 1) / this.questions.length * 100)}%"></div>
+                </div>
+            </div>
+            <div class="quiz-question reveal">
+                <span class="quiz-question-num">Q${this.currentQuestion + 1}.</span>
+                ${q.question}
+            </div>
+            <div class="quiz-options">
+        `;
+
+        q.options.forEach((option, index) => {
+            html += `
+                <div class="quiz-option reveal" data-index="${index}">
+                    <span class="quiz-option-letter">${letters[index]}</span>
+                    <span class="quiz-option-text">${option}</span>
+                </div>
+            `;
+        });
+
+        html += `
+            </div>
+                <div class="quiz-feedback" id="quiz-feedback-${this.instanceIndex}">
+                    <div class="quiz-feedback-title" id="feedback-title-${this.instanceIndex}"></div>
+                    <div class="quiz-feedback-text" id="feedback-text-${this.instanceIndex}"></div>
+                </div>
+                <button class="quiz-next-btn reveal" id="next-btn-${this.instanceIndex}" style="display: none;">
+                    ${this.currentQuestion < this.questions.length - 1 ? '下一题 →' : '查看成绩'}
+                </button>
+            </div>
+        `;
+
+        this.container.innerHTML = html;
+        this.attachListeners();
+    }
+
+    attachListeners() {
+        const options = this.container.querySelectorAll('.quiz-option');
+        const nextBtn = document.getElementById(`next-btn-${this.instanceIndex}`);
+
+        options.forEach(option => {
+            option.addEventListener('click', () => this.handleAnswer(parseInt(option.dataset.index)));
+        });
+
+        nextBtn.addEventListener('click', () => {
+            this.currentQuestion++;
+            this.answered = false;
+            this.renderQuiz();
+        });
+    }
+
+    handleAnswer(selectedIndex) {
+        if (this.answered) return;
+        this.answered = true;
+
+        const q = this.questions[this.currentQuestion];
+        const options = this.container.querySelectorAll('.quiz-option');
+        const feedback = document.getElementById(`quiz-feedback-${this.instanceIndex}`);
+        const feedbackTitle = document.getElementById(`feedback-title-${this.instanceIndex}`);
+        const feedbackText = document.getElementById(`feedback-text-${this.instanceIndex}`);
+        const nextBtn = document.getElementById(`next-btn-${this.instanceIndex}`);
+
+        options.forEach((option, index) => {
+            if (index === q.correct) {
+                option.classList.add('correct');
+            } else if (index === selectedIndex && selectedIndex !== q.correct) {
+                option.classList.add('incorrect');
+            }
+        });
+
+        if (selectedIndex === q.correct) {
+            this.score++;
+            feedback.className = 'quiz-feedback correct show';
+            feedbackTitle.textContent = '✓ 回答正确！';
+        } else {
+            feedback.className = 'quiz-feedback incorrect show';
+            feedbackTitle.textContent = '✗ 回答错误';
+        }
+
+        feedbackText.textContent = q.explanation;
+        nextBtn.style.display = 'inline-block';
+    }
+
+    showScore() {
+        const percentage = Math.round((this.score / this.questions.length) * 100);
+        let message = '';
+
+        if (percentage >= 90) {
+            message = '太棒了！你已经完全掌握了这个单元的知识！🎉';
+        } else if (percentage >= 70) {
+            message = '做得不错！继续巩固一下薄弱环节吧！💪';
+        } else if (percentage >= 50) {
+            message = '还需要再复习一下这个单元的内容哦！📚';
+        } else {
+            message = '建议重新学习这个单元，加油！💡';
+        }
+
+        let html = `
+            <div class="quiz-score-screen reveal">
+                <div class="quiz-score-text">${this.unitName} 测验完成！</div>
+                <div class="quiz-score-display">${this.score} / ${this.questions.length}</div>
+                <div class="quiz-score-message">${message}</div>
+                <div class="quiz-score-actions">
+                    <button class="quiz-retry-btn" data-quiz-index="${this.instanceIndex}">
+                        🔄 重新测验
+                    </button>
+                    <button class="quiz-continue-btn" onclick="presentation.goToSlide(presentation.currentSlide + 1)">
+                        继续学习 →
+                    </button>
+                </div>
+            </div>
+        `;
+
+        this.container.innerHTML = html;
+
+        const retryBtn = this.container.querySelector('.quiz-retry-btn');
+        if (retryBtn) {
+            retryBtn.addEventListener('click', () => this.retry());
+        }
+    }
+
+    retry() {
+        this.currentQuestion = 0;
+        this.score = 0;
+        this.answered = false;
+        this.renderQuiz();
+    }
+}
+
+/* ===========================================
+   INLINE EDITING SYSTEM
+   =========================================== */
+class InlineEditor {
+    constructor() {
+        this.isActive = false;
+        this.storageKey = 'slides_content_g8_iot_' + Date.now();
+        this.editableElements = document.querySelectorAll('h1, h2, h3, p, li, .feature-title, .feature-desc, .step-text, .info-card-title, .col-title, .quiz-option-text');
+        this.toggleBtn = document.getElementById('editToggle');
+        this.hotzone = document.getElementById('editHotzone');
+        this.setupInteractions();
+        this.loadFromStorage();
+    }
+
+    setupInteractions() {
+        let hideTimeout = null;
+
+        this.toggleBtn.addEventListener('click', () => this.toggleEditMode());
+
+        this.hotzone.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+            this.toggleBtn.classList.add('show');
+        });
+
+        this.hotzone.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                if (!this.isActive) this.toggleBtn.classList.remove('show');
+            }, 400);
+        });
+
+        this.toggleBtn.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+        this.toggleBtn.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                if (!this.isActive) this.toggleBtn.classList.remove('show');
+            }, 400);
+        });
+
+        this.hotzone.addEventListener('click', () => this.toggleEditMode());
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+                e.preventDefault();
+                this.toggleEditMode();
+            }
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                this.saveToStorage();
+                this.showSaveNotification();
+            }
+        });
+    }
+
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        document.body.classList.toggle('editing', this.isActive);
+        this.toggleBtn.classList.toggle('active', this.isActive);
+
+        this.editableElements.forEach(el => {
+            el.setAttribute('contenteditable', this.isActive);
+        });
+    }
+
+    saveToStorage() {
+        const content = {};
+        this.editableElements.forEach((el, index) => {
+            content[index] = el.innerHTML;
+        });
+        localStorage.setItem(this.storageKey, JSON.stringify(content));
+    }
+
+    loadFromStorage() {
+        const saved = localStorage.getItem(this.storageKey);
+        if (saved) {
+            const content = JSON.parse(saved);
+            this.editableElements.forEach((el, index) => {
+                if (content[index]) el.innerHTML = content[index];
+            });
+        }
+    }
+
+    showSaveNotification() {
+        const notification = document.createElement('div');
+        notification.textContent = '✓ 已保存';
+        notification.style.cssText = `
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            color: #0a1a0f;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            z-index: 10002;
+            animation: fadeOut 2s ease forwards;
+        `;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 2000);
+    }
+}
+
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   =========================================== */
+class SlidePresentation {
+    constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.currentSlide = 0;
+        this.progressBar = document.getElementById('progressBar');
+        this.navDots = document.getElementById('navDots');
+
+        this.setupIntersectionObserver();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupProgressBar();
+        this.setupNavDots();
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const index = Array.from(this.slides).indexOf(entry.target);
+                    this.currentSlide = index;
+                    this.updateProgressBar();
+                    this.updateNavDots();
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        this.slides.forEach(slide => observer.observe(slide));
+    }
+
+    setupKeyboardNav() {
+        document.addEventListener('keydown', (e) => {
+            if (e.target.getAttribute('contenteditable') === 'true') return;
+            if (document.body.classList.contains('editing')) return;
+
+            switch(e.key) {
+                case 'ArrowDown':
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    this.goToSlide(this.currentSlide + 1);
+                    break;
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    this.goToSlide(this.currentSlide - 1);
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    this.goToSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    this.goToSlide(this.slides.length - 1);
+                    break;
+            }
+        });
+    }
+
+    setupTouchNav() {
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    this.goToSlide(this.currentSlide + 1);
+                } else {
+                    this.goToSlide(this.currentSlide - 1);
+                }
+            }
+        }, { passive: true });
+    }
+
+    goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index >= this.slides.length) index = this.slides.length - 1;
+        this.slides[index].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setupProgressBar() {
+        this.updateProgressBar();
+    }
+
+    updateProgressBar() {
+        const progress = ((this.currentSlide + 1) / this.slides.length) * 100;
+        this.progressBar.style.width = progress + '%';
+    }
+
+    setupNavDots() {
+        this.slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.addEventListener('click', () => this.goToSlide(index));
+            this.navDots.appendChild(dot);
+        });
+        this.updateNavDots();
+    }
+
+    updateNavDots() {
+        const dots = this.navDots.querySelectorAll('.nav-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+}
+
+// Add fadeOut animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeOut {
+        0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        70% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize quizzes
+document.addEventListener('DOMContentLoaded', () => {
+    new QuizSystem('quiz-content-unit1', '第一单元', quizData.unit1, 0);
+    new QuizSystem('quiz-content-unit2', '第二单元', quizData.unit2, 1);
+    new QuizSystem('quiz-content-unit3', '第三单元', quizData.unit3, 2);
+    new QuizSystem('quiz-content-unit4', '第四单元', quizData.unit4, 3);
+    new QuizSystem('quiz-content-unit5', '第五单元', quizData.unit5, 4);
+    new QuizSystem('quiz-content-unit6', '第六单元', quizData.unit6, 5);
+});
+
+// Initialize
+const editor = new InlineEditor();
+const presentation = new SlidePresentation();
+</script>
+</body>
+</html>

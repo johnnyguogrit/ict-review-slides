@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>七年级信息技术复习提纲</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   CSS CUSTOM PROPERTIES (NEON CYBER THEME)
+   =========================================== */
+:root {
+    /* Colors — Neon Cyber Palette */
+    --bg-dark: #0a0f1c;
+    --bg-darker: #050810;
+    --accent-cyan: #00ffcc;
+    --accent-magenta: #ff00aa;
+    --accent-blue: #4361ee;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-dim: rgba(255, 255, 255, 0.3);
+
+    /* Glow Effects */
+    --glow-cyan: 0 0 20px rgba(0, 255, 204, 0.5), 0 0 40px rgba(0, 255, 204, 0.3);
+    --glow-magenta: 0 0 20px rgba(255, 0, 170, 0.5), 0 0 40px rgba(255, 0, 170, 0.3);
+
+    /* Typography — MUST use clamp() */
+    --font-display: 'Clash Display', sans-serif;
+    --font-body: 'Satoshi', sans-serif;
+    --font-mono: 'Satoshi', monospace;
+    --title-size: clamp(2rem, 6vw, 5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.2rem, 3vw, 2rem);
+    --body-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    --small-size: clamp(0.7rem, 1.2vw, 0.9rem);
+
+    /* Spacing — MUST use clamp() */
+    --slide-padding: clamp(1.5rem, 4vw, 4rem);
+    --content-gap: clamp(1rem, 2vw, 2rem);
+    --element-gap: clamp(0.5rem, 1vw, 1rem);
+
+    /* Animation */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-normal: 0.6s;
+}
+
+/* ===========================================
+   BASE STYLES & RESET
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* ===========================================
+   VIEWPORT FITTING: MANDATORY BASE STYLES
+   Include this ENTIRE file in every presentation.
+   These styles ensure slides fit exactly in the viewport.
+   =========================================== */
+
+/* 1. Lock html/body to viewport */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* 2. Each slide = exact viewport height */
+.slide {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    overflow: hidden; /* CRITICAL: Prevent ANY overflow */
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* 3. Content container with flex for centering */
+.slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 100%;
+    overflow: hidden; /* Double-protection against overflow */
+    padding: var(--slide-padding);
+}
+
+/* 4. ALL typography uses clamp() for responsive scaling */
+:root {
+    /* Titles scale from mobile to desktop */
+    --title-size: clamp(1.5rem, 5vw, 4rem);
+    --h2-size: clamp(1.25rem, 3.5vw, 2.5rem);
+    --h3-size: clamp(1rem, 2.5vw, 1.75rem);
+
+    /* Body text */
+    --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
+    --small-size: clamp(0.65rem, 1vw, 0.875rem);
+
+    /* Spacing scales with viewport */
+    --slide-padding: clamp(1rem, 4vw, 4rem);
+    --content-gap: clamp(0.5rem, 2vw, 2rem);
+    --element-gap: clamp(0.25rem, 1vw, 1rem);
+}
+
+/* 5. Cards/containers use viewport-relative max sizes */
+.card, .container, .content-box {
+    max-width: min(90vw, 1000px);
+    max-height: min(80vh, 700px);
+}
+
+/* 6. Lists auto-scale with viewport */
+.feature-list, .bullet-list {
+    gap: clamp(0.4rem, 1vh, 1rem);
+}
+
+.feature-list li, .bullet-list li {
+    font-size: var(--body-size);
+    line-height: 1.4;
+}
+
+/* 7. Grids adapt to available space */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+/* 8. Images constrained to viewport */
+img, .image-container {
+    max-width: 100%;
+    max-height: min(50vh, 400px);
+    object-fit: contain;
+}
+
+/* ===========================================
+   RESPONSIVE BREAKPOINTS
+   Aggressive scaling for smaller viewports
+   =========================================== */
+
+/* Short viewports (< 700px height) */
+@media (max-height: 700px) {
+    :root {
+        --slide-padding: clamp(0.75rem, 3vw, 2rem);
+        --content-gap: clamp(0.4rem, 1.5vw, 1rem);
+        --title-size: clamp(1.25rem, 4.5vw, 2.5rem);
+        --h2-size: clamp(1rem, 3vw, 1.75rem);
+    }
+}
+
+/* Very short viewports (< 600px height) */
+@media (max-height: 600px) {
+    :root {
+        --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+        --content-gap: clamp(0.3rem, 1vw, 0.75rem);
+        --title-size: clamp(1.1rem, 4vw, 2rem);
+        --body-size: clamp(0.7rem, 1.2vw, 0.95rem);
+    }
+
+    /* Hide non-essential elements */
+    .nav-dots, .keyboard-hint, .decorative {
+        display: none;
+    }
+}
+
+/* Extremely short (landscape phones, < 500px height) */
+@media (max-height: 500px) {
+    :root {
+        --slide-padding: clamp(0.4rem, 2vw, 1rem);
+        --title-size: clamp(1rem, 3.5vw, 1.5rem);
+        --h2-size: clamp(0.9rem, 2.5vw, 1.25rem);
+        --body-size: clamp(0.65rem, 1vw, 0.85rem);
+    }
+}
+
+/* Narrow viewports (< 600px width) */
+@media (max-width: 600px) {
+    :root {
+        --title-size: clamp(1.25rem, 7vw, 2.5rem);
+    }
+
+    /* Stack grids vertically */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================================
+   REDUCED MOTION
+   Respect user preferences
+   =========================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .particle, .scan-line {
+        display: none;
+    }
+}
+
+/* ===========================================
+   NEON CYBER SPECIFIC STYLES
+   =========================================== */
+
+/* Grid pattern background */
+.grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+    background-size: clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px);
+    pointer-events: none;
+}
+
+/* Particle effects */
+.particle {
+    position: absolute;
+    width: clamp(2px, 0.3vw, 4px);
+    height: clamp(2px, 0.3vw, 4px);
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    opacity: 0;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.particle.magenta {
+    background: var(--accent-magenta);
+}
+
+@keyframes float {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(calc(-1 * clamp(10px, 3vh, 30px))) scale(1.5);
+    }
+}
+
+/* Scan line effect */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    opacity: 0.3;
+    animation: scan 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* Progress bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+/* Navigation dots */
+.nav-dots {
+    position: fixed;
+    right: clamp(1rem, 2vw, 2rem);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    z-index: 100;
+}
+
+.nav-dot {
+    width: clamp(8px, 1vw, 12px);
+    height: clamp(8px, 1vw, 12px);
+    border-radius: 50%;
+    background: var(--text-dim);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot:hover {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.nav-dot.active {
+    background: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+/* Unit badge */
+.unit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 0.6rem);
+    padding: clamp(0.4rem, 0.8vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem);
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.2), rgba(255, 0, 170, 0.2));
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--content-gap);
+}
+
+/* Slide titles */
+.slide-title {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--content-gap);
+    line-height: 1.2;
+}
+
+.slide-title .accent {
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.slide-title .accent-magenta {
+    color: var(--accent-magenta);
+    text-shadow: var(--glow-magenta);
+}
+
+/* Content lists */
+.content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+.content-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(0.5rem, 1vw, 0.8rem);
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: clamp(0.5rem, 1vw, 0.8rem);
+    border-left: 2px solid rgba(0, 255, 204, 0.2);
+    transition: border-color 0.3s ease;
+}
+
+.content-list li:hover {
+    border-left-color: var(--accent-cyan);
+    color: var(--text-primary);
+}
+
+.content-list li::before {
+    content: '▹';
+    color: var(--accent-cyan);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* Two column layout */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    max-width: min(95vw, 1400px);
+}
+
+@media (max-width: 768px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.col-title {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+/* Info cards */
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 204, 0.1);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.info-card-title {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.info-card-title .highlight {
+    color: var(--accent-magenta);
+}
+
+/* Keyword tag */
+.keyword {
+    display: inline-block;
+    padding: clamp(0.2rem, 0.5vw, 0.3rem) clamp(0.5rem, 1vw, 0.8rem);
+    background: rgba(255, 0, 170, 0.15);
+    border: 1px solid rgba(255, 0, 170, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    color: var(--accent-magenta);
+}
+
+/* Definition box */
+.definition-box {
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.05), rgba(67, 97, 238, 0.05));
+    border-left: 3px solid var(--accent-cyan);
+    padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    margin: clamp(0.8rem, 1.5vw, 1.2rem) 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.definition-box strong {
+    color: var(--accent-cyan);
+}
+
+/* Process steps */
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.step-num {
+    flex-shrink: 0;
+    width: clamp(32px, 4vw, 48px);
+    height: clamp(32px, 4vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    color: var(--bg-dark);
+    font-family: var(--font-display);
+    font-size: var(--body-size);
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.step-text {
+    flex: 1;
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+}
+
+/* Feature grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 255, 204, 0.1);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(0, 255, 204, 0.05);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.feature-icon {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.feature-title {
+    font-family: var(--font-display);
+    font-size: var(--body-size);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-bottom: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+
+.feature-desc {
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    color: var(--text-dim);
+}
+
+/* Table style */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--body-size);
+}
+
+.data-table th,
+.data-table td {
+    padding: clamp(0.6rem, 1.2vw, 1rem);
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+}
+
+.data-table th {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    background: rgba(0, 255, 204, 0.05);
+}
+
+.data-table td {
+    color: var(--text-secondary);
+}
+
+.data-table tr:hover td {
+    background: rgba(0, 255, 204, 0.03);
+}
+
+/* Warning box */
+.warning-box {
+    background: rgba(255, 0, 170, 0.05);
+    border: 1px solid rgba(255, 0, 170, 0.2);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.warning-box-title {
+    color: var(--accent-magenta);
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+/* ===========================================
+   ANIMATIONS (Reveal on scroll)
+   =========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--duration-normal) var(--ease-out-expo),
+                transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.slide.visible .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal:nth-child(1) { transition-delay: 0.1s; }
+.reveal:nth-child(2) { transition-delay: 0.2s; }
+.reveal:nth-child(3) { transition-delay: 0.3s; }
+.reveal:nth-child(4) { transition-delay: 0.4s; }
+.reveal:nth-child(5) { transition-delay: 0.5s; }
+.reveal:nth-child(6) { transition-delay: 0.6s; }
+
+/* Scale reveal */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s, transform 0.6s var(--ease-out-expo);
+}
+
+.slide.visible .reveal-scale {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Blur reveal */
+.reveal-blur {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.8s, filter 0.8s var(--ease-out-expo);
+}
+
+.slide.visible .reveal-blur {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 204, 0.6), 0 0 40px rgba(0, 255, 204, 0.3);
+    }
+}
+
+.glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ===========================================
+   TITLE SLIDE STYLES
+   =========================================== */
+.title-slide {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title-main {
+    font-family: var(--font-display);
+    font-size: var(--title-size);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.title-main .neon-cyan {
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.title-main .neon-magenta {
+    color: var(--accent-magenta);
+    text-shadow: var(--glow-magenta);
+}
+
+.title-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+.title-meta {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meta-tag {
+    padding: clamp(0.4rem, 0.8vw, 0.6rem) clamp(1rem, 2vw, 1.5rem);
+    background: rgba(0, 255, 204, 0.1);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-cyan);
+}
+
+/* ===========================================
+   INLINE EDITING STYLES
+   =========================================== */
+.edit-hotzone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.edit-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10001;
+}
+
+.edit-toggle.show,
+.edit-toggle.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.edit-toggle:hover {
+    transform: scale(1.1);
+}
+
+.edit-toggle.active {
+    box-shadow: var(--glow-cyan);
+}
+
+.edit-hint {
+    position: fixed;
+    bottom: clamp(1rem, 2vw, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--text-dim);
+    padding: clamp(0.5rem, 1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.edit-toggle.active ~ .edit-hint {
+    opacity: 1;
+}
+
+/* Editable elements */
+.editing [contenteditable="true"] {
+    outline: 2px dashed var(--accent-cyan);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.editing [contenteditable="true"]:focus {
+    outline: 2px solid var(--accent-magenta);
+    background: rgba(255, 0, 170, 0.05);
+}
+
+/* ===========================================
+   SLIDE SPECIFIC STYLES
+   =========================================== */
+
+/* Centered slide */
+.slide-centered {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Unit slide */
+.unit-slide {
+    justify-content: center;
+}
+
+.unit-number {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 12rem);
+    font-weight: 700;
+    color: rgba(0, 255, 204, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.unit-content {
+    position: relative;
+    z-index: 1;
+    max-width: min(90vw, 900px);
+}
+
+/* List slide */
+.list-slide .content-list {
+    max-width: min(90vw, 1000px);
+}
+
+/* Two column slide */
+.two-col-slide .two-col {
+    width: 100%;
+    max-width: min(95vw, 1400px);
+    margin: 0 auto;
+}
+
+/* Info slide */
+.info-slide .info-card {
+    max-width: min(90vw, 1000px);
+}
+
+/* ===========================================
+   KEYBOARD HINT
+   =========================================== */
+.keyboard-hint {
+    position: fixed;
+    bottom: clamp(1rem, 2vw, 2rem);
+    right: clamp(1rem, 2vw, 2rem);
+    display: flex;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    font-family: var(--font-mono);
+    font-size: clamp(0.6rem, 1vw, 0.75rem);
+    color: var(--text-dim);
+    z-index: 100;
+}
+
+.key {
+    padding: clamp(0.2rem, 0.4vw, 0.3rem) clamp(0.5rem, 1vw, 0.7rem);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* ===========================================
+   CLOSING SLIDE
+   =========================================== */
+.closing-slide {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.closing-emoji {
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.closing-title {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    color: var(--accent-cyan);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.closing-text {
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+</style>
+</head>
+<body>
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Edit Hotzone & Toggle -->
+<div class="edit-hotzone" id="editHotzone" title="编辑模式"></div>
+<button class="edit-toggle" id="editToggle" title="编辑模式 (按 E)">✏️</button>
+
+<!-- Navigation Dots -->
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- Keyboard Hint -->
+<div class="keyboard-hint">
+    <span class="key">↑</span>
+    <span class="key">↓</span>
+    <span class="key">空格</span>
+    <span>导航</span>
+    <span class="key" style="margin-left: 0.5rem;">E</span>
+    <span>编辑</span>
+</div>
+
+<!-- ===========================================
+     SLIDE 1: Title Slide
+     =========================================== -->
+<section class="slide title-slide">
+    <div class="grid-bg"></div>
+    <div class="particle" style="top: 20%; left: 10%;"></div>
+    <div class="particle magenta" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+    <div class="particle" style="top: 80%; left: 30%; animation-delay: 2s;"></div>
+    <div class="particle magenta" style="top: 40%; left: 70%; animation-delay: 3s;"></div>
+    <div class="scan-line"></div>
+
+    <div class="slide-content">
+        <h1 class="title-main reveal">
+            <span class="neon-cyan">七年级</span><br>
+            <span class="neon-magenta">信息技术</span><br>
+            <span style="color: var(--text-primary);">复习提纲</span>
+        </h1>
+        <p class="title-subtitle reveal">互联网 · 信息处理 · 网站制作 · 网络原理 · 创新应用 · 安全防范 · 人工智能</p>
+        <div class="title-meta reveal">
+            <span class="meta-tag">7个单元</span>
+            <span class="meta-tag">25+ 知识点</span>
+            <span class="meta-tag">期末复习</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 2: Unit 1 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">01</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit One</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">互联网</span>及其影响
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            互联网的起源、应用特征、发展趋势与潜在风险
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 3: Unit 1 - 互联网起源
+     =========================================== -->
+<section class="slide list-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">互联网的<span class="accent">起源</span></h2>
+        <ul class="content-list">
+            <li class="reveal"><strong>起源：</strong>与阿帕网（ARPANET）有关，中国于1994年接入互联网</li>
+            <li class="reveal"><strong>互联网应用及功能：</strong>搜索引擎、即时通信、在线支付等</li>
+            <li class="reveal"><strong>互联网应用特征：</strong>操作简单、交互性强、图文声像并茂</li>
+            <li class="reveal"><strong>"互联网+"：</strong>"互联网+各传统行业"，推动传统行业转型升级</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 4: Unit 1 - 互联网潜在风险
+     =========================================== -->
+<section class="slide list-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">互联网<span class="accent-magenta">潜在风险</span></h2>
+        <ul class="content-list">
+            <li class="reveal">信息安全与隐私保护问题</li>
+            <li class="reveal">青少年网络成瘾与心理健康影响</li>
+            <li class="reveal">信息过载与虚假信息传播</li>
+            <li class="reveal">数字鸿沟与社会不平等加剧</li>
+            <li class="reveal">网络暴力与不良文化影响</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 5: Unit 2 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">02</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Two</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">互联网信息</span>处理
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            搜索引擎、信息种类、管理方式与微视频制作
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 6: Unit 2 - 搜索引擎
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">搜索引擎工作原理</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">三大环节</h3>
+                <div class="info-card">
+                    <p><span class="keyword">抓取</span> — 网络爬虫自动收集网页</p>
+                </div>
+                <div class="info-card">
+                    <p><span class="keyword">索引</span> — 建立数据库索引</p>
+                </div>
+                <div class="info-card">
+                    <p><span class="keyword">排序</span> — 按相关性排列结果</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">搜索引擎分类</h3>
+                <ul class="content-list">
+                    <li>全文搜索引擎</li>
+                    <li>垂直搜索引擎</li>
+                    <li>元搜索引擎</li>
+                    <li>目录搜索引擎</li>
+                </ul>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>技巧：</strong>使用引号可精确匹配关键词
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 7: Unit 2 - 信息种类
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">信息<span class="accent">种类</span>与格式</h2>
+        <table class="data-table reveal">
+            <thead>
+                <tr>
+                    <th>信息类型</th>
+                    <th>常见格式</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>文字信息</td>
+                    <td>txt、wps、docx、doc</td>
+                </tr>
+                <tr>
+                    <td>图片信息</td>
+                    <td>JPG、JPEG、PNG、GIF、BMP</td>
+                </tr>
+                <tr>
+                    <td>音频信息</td>
+                    <td>MP3、WMA、WAV</td>
+                </tr>
+                <tr>
+                    <td>视频信息</td>
+                    <td>MP4、AVI、FLV、WMV</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="definition-box">
+                <strong>管理方式：</strong>本地管理、在线管理 | <strong>管理工具：</strong>云存储、云文档、云笔记
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 8: Unit 2 - 微视频制作流程
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">微视频<span class="accent">制作流程</span></h2>
+        <div class="process-steps" style="max-width: min(90vw, 1000px);">
+            <div class="step reveal">
+                <span class="step-num">1</span>
+                <span class="step-text"><strong>前期：</strong>明确主题、分析策划</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">2</span>
+                <span class="step-text"><strong>中期：</strong>采集素材、加工素材</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">3</span>
+                <span class="step-text"><strong>后期：</strong>集成作品、发布作品</span>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card">
+                <span class="info-card-title">信息交流特点</span>
+                <p style="color: var(--text-secondary);">即时性、互动性、多媒体性、开放性、便捷性</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 9: Unit 2 - 信息交流规范
+     =========================================== -->
+<section class="slide list-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">互联网信息交流<span class="accent">规范</span></h2>
+        <ul class="content-list">
+            <li class="reveal">遵纪守法，维护公序良俗</li>
+            <li class="reveal">文明交互，尊重他人</li>
+            <li class="reveal">保护隐私，严守数据安全</li>
+            <li class="reveal">抵制谣言，传播真相</li>
+            <li class="reveal">尊重原创，规范引用</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 10: Unit 3 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">03</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Three</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">网站制作</span>
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            网站数据构成、版面规划、开发流程与HTML基础
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 11: Unit 3 - 网站数据构成
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">互联网的<span class="accent">数据构成</span></h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">📝</div>
+                <div class="feature-title">文本数据</div>
+                <div class="feature-desc">文字内容、标题、描述</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🖼️</div>
+                <div class="feature-title">图像数据</div>
+                <div class="feature-desc">图片、图标、插画</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🎵</div>
+                <div class="feature-title">音频数据</div>
+                <div class="feature-desc">背景音乐、音效</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🎬</div>
+                <div class="feature-title">视频数据</div>
+                <div class="feature-desc">视频文件、动画</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">👆</div>
+                <div class="feature-title">用户行为数据</div>
+                <div class="feature-desc">点击、浏览、交互</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">其他数据</div>
+                <div class="feature-desc">数据库、配置文件</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 12: Unit 3 - 网站版面规划
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">网站<span class="accent">版面规划</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">网站导航类型</h3>
+                <ul class="content-list">
+                    <li>全局导航</li>
+                    <li>局部导航</li>
+                    <li>面包屑导航</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">网站团队分工</h3>
+                <ul class="content-list">
+                    <li>项目经理</li>
+                    <li>美工设计师</li>
+                    <li>内容编辑</li>
+                    <li>前端/后端开发人员</li>
+                    <li>测试人员</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 13: Unit 3 - 网站开发流程
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">网站<span class="accent">开发流程</span></h2>
+        <div class="process-steps" style="max-width: min(90vw, 1200px);">
+            <div class="step reveal">
+                <span class="step-num">1</span>
+                <span class="step-text">网站规划</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">2</span>
+                <span class="step-text">素材准备</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">3</span>
+                <span class="step-text">网站开发（前端和后端）</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">4</span>
+                <span class="step-text">网站测试</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">5</span>
+                <span class="step-text">网站发布</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">6</span>
+                <span class="step-text">网站维护</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 14: Unit 3 - HTML基础
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">HTML</span> 基础</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <div class="info-card">
+                    <span class="info-card-title">网页文件格式</span>
+                    <p style="font-size: var(--body-size); color: var(--text-secondary);">.html</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-title">HTML标签类型</span>
+                    <p style="font-size: var(--body-size); color: var(--text-secondary);">单标签 和 双标签</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-title">网页编辑工具</span>
+                    <p style="font-size: var(--body-size); color: var(--text-secondary);">Dreamweaver、VS Code</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="definition-box">
+                    <strong>opacity 属性：</strong>设置透明度，范围 0.0-1.0<br>
+                    0.0 = 完全透明，1.0 = 完全不透明
+                </div>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>网页发布方式：</strong><br>
+                    局域网发布、互联网发布（需申请域名、网络备案）
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 15: Unit 4 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">04</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Four</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">互联网基本原理</span>
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            网络分类、IP地址、域名系统与网络协议
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 16: Unit 4 - 网络分类
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">网络<span class="accent">分类</span>与连接</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">网络分类</h3>
+                <ul class="content-list">
+                    <li><span class="keyword">LAN</span> — 局域网</li>
+                    <li><span class="keyword">WAN</span> — 广域网</li>
+                </ul>
+                <h3 class="col-title" style="margin-top: 1.5rem;">网络连接设备</h3>
+                <div class="info-card">
+                    <p><strong>路由器：</strong>路由选择、数据转发</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">网络连接方式</h3>
+                <ul class="content-list">
+                    <li><strong>有线：</strong>双绞线、光纤</li>
+                    <li><strong>无线：</strong>Wi-Fi、蓝牙</li>
+                </ul>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>常用命令：</strong><br>
+                    • ipconfig/all — 查看IP配置<br>
+                    • ping — 检测连通性
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 17: Unit 4 - IP地址
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">IP</span> 地址</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <div class="info-card">
+                    <span class="info-card-title">定义</span>
+                    <p style="color: var(--text-secondary);">标识互联网中每台主机和路由器，具有唯一性</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-title">组成</span>
+                    <p style="color: var(--text-secondary);">网络号 + 主机号</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>类型</th>
+                            <th>位数</th>
+                            <th>示例</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IPv4</td>
+                            <td>32位</td>
+                            <td>192.168.0.111</td>
+                        </tr>
+                        <tr>
+                            <td>IPv6</td>
+                            <td>128位</td>
+                            <td>地址空间大幅扩展</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>地址分类：</strong>公有地址、私有地址
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 18: Unit 4 - 域名与协议
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">域名与<span class="accent">网络协议</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">域名系统 DNS</h3>
+                <ul class="content-list">
+                    <li>实现从域名到IP地址的高效转换</li>
+                    <li>URL：统一资源定位符，定位互联网资源</li>
+                </ul>
+                <div class="info-card" style="margin-top: 1rem;">
+                    <span class="info-card-title">电子邮件格式</span>
+                    <p style="color: var(--text-secondary);">用户名@邮件服务器域名</p>
+                    <p style="font-size: var(--small-size); color: var(--text-dim);">如：gfps@163.com</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">网络协议</h3>
+                <ul class="content-list">
+                    <li><strong>HTTP：</strong>超文本传输协议，"请求—响应"机制</li>
+                    <li><strong>SMTP：</strong>发送邮件</li>
+                    <li><strong>POP3：</strong>接收邮件</li>
+                    <li><strong>IMAP：</strong>同步邮件状态</li>
+                    <li><strong>TCP/IP：</strong>最基础的通信协议</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 19: Unit 5 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">05</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Five</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">互联网创新应用</span>
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            在线学习、协同工作、智能会议与AI工具
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 20: Unit 5 - 在线学习
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">在线学习</span>平台</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">在线学习平台分类</h3>
+                <ul class="content-list">
+                    <li>权威教育平台</li>
+                    <li>专业知识网站</li>
+                    <li>学术资源数据库（如中国知网）</li>
+                    <li>信息检索工具</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">在线学习特点</h3>
+                <ul class="content-list">
+                    <li>打破时空限制</li>
+                    <li>海量学习资源</li>
+                    <li>支持个性化学习</li>
+                    <li>沉浸式互动体验</li>
+                </ul>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card" style="max-width: min(90vw, 1000px); margin: 0 auto;">
+                <span class="info-card-title">"互联网+" 重构工作模式</span>
+                <p style="color: var(--text-secondary);">提升协作效率 · 优化业务流程 · 促进知识共享 · 辅助科学决策</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 21: Unit 5 - 智能工具
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">智能<span class="accent">会议与AI</span>工具</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">智能会议助手功能</h3>
+                <ul class="content-list">
+                    <li>会议资料管理</li>
+                    <li>智能语音识别</li>
+                    <li>会议内容自动记录</li>
+                    <li>智能摘要生成</li>
+                    <li>会议过程管理</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">数据驱动决策</h3>
+                <div class="process-steps">
+                    <div class="step">
+                        <span class="step-num" style="width: 28px; height: 28px; font-size: 0.8rem;">1</span>
+                        <span class="step-text" style="font-size: var(--small-size);">数据采集整理</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num" style="width: 28px; height: 28px; font-size: 0.8rem;">2</span>
+                        <span class="step-text" style="font-size: var(--small-size);">数据分析</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num" style="width: 28px; height: 28px; font-size: 0.8rem;">3</span>
+                        <span class="step-text" style="font-size: var(--small-size);">数据可视化</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num" style="width: 28px; height: 28px; font-size: 0.8rem;">4</span>
+                        <span class="step-text" style="font-size: var(--small-size);">科学决策优化</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 22: Unit 6 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">06</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Six</div>
+        <h2 class="slide-title reveal">
+            <span class="accent-magenta">互联网安全</span>与防范
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            网络风险识别、身份验证与数据加密
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 23: Unit 6 - 网络风险与防范
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">常见风险与<span class="accent-magenta">防范措施</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title" style="color: var(--accent-magenta);">常见风险</h3>
+                <ul class="content-list">
+                    <li>网络诈骗</li>
+                    <li>恶意软件</li>
+                    <li>信息泄露</li>
+                    <li>网络欺凌</li>
+                    <li>生成式AI带来的新风险</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title" style="color: var(--accent-cyan);">防范措施</h3>
+                <ul class="content-list">
+                    <li>安装配置防火墙</li>
+                    <li>定期更新系统和软件</li>
+                    <li>设置复杂密码</li>
+                    <li>防范恶意软件</li>
+                    <li>提高安全意识</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 24: Unit 6 - 身份验证
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">身份验证<span class="accent">三大因素</span></h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-title">知识因子</div>
+                <div class="feature-desc">密码、PIN码</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">持有因子</div>
+                <div class="feature-desc">手机、U盾、Token</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">👤</div>
+                <div class="feature-title">生物因子</div>
+                <div class="feature-desc">指纹、人脸、虹膜</div>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="definition-box" style="max-width: min(90vw, 1000px); margin: 0 auto;">
+                <strong>数据加密技术：</strong>将明文与密钥结合，通过特定算法转换为密文，分为对称加密和非对称加密
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 25: Unit 7 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">07</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Seven</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">生成式AI</span>赋能创新
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            生成式人工智能的原理、应用与常见工具平台
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 26: Unit 7 - AI生成流程
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">AI<span class="accent">生成流程</span></h2>
+        <div class="process-steps" style="max-width: min(90vw, 1200px);">
+            <div class="step reveal">
+                <span class="step-num">1</span>
+                <span class="step-text">学习语法、算法和常见模式</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">2</span>
+                <span class="step-text">提取关键信息，明确用户意图</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">3</span>
+                <span class="step-text">生成初步代码/内容框架</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">4</span>
+                <span class="step-text">迭代优化，自动检测并修正错误</span>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card" style="max-width: min(90vw, 1000px); margin: 0 auto;">
+                <span class="info-card-title">云存储优势</span>
+                <p style="color: var(--text-secondary);">稳定安全 · 灵活访问 · 协作共享 · 节省空间</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 27: Unit 7 - 常见工具平台
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">常见互联网<span class="accent">工具平台</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">生成式AI平台</h3>
+                <div class="info-card">
+                    <p style="color: var(--text-secondary); font-size: var(--body-size);">豆包、DeepSeek、文心一言、通义千问、Kimi</p>
+                </div>
+                <h3 class="col-title" style="margin-top: 1rem;">云存储</h3>
+                <div class="info-card">
+                    <p style="color: var(--text-secondary); font-size: var(--body-size);">百度网盘、腾讯微盘、夸克网盘、阿里云盘</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">云文档协作</h3>
+                <div class="info-card">
+                    <p style="color: var(--text-secondary); font-size: var(--body-size);">WPS云文档、腾讯文档、石墨文档</p>
+                </div>
+                <h3 class="col-title" style="margin-top: 1rem;">搜索引擎</h3>
+                <div class="info-card">
+                    <p style="color: var(--text-secondary); font-size: var(--body-size);">百度、必应、搜狗、360搜索、Google</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 28: Closing
+     =========================================== -->
+<section class="slide closing-slide">
+    <div class="grid-bg"></div>
+    <div class="particle" style="top: 20%; left: 10%;"></div>
+    <div class="particle magenta" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+    <div class="particle" style="top: 80%; left: 30%; animation-delay: 2s;"></div>
+    <div class="particle magenta" style="top: 40%; left: 70%; animation-delay: 3s;"></div>
+    <div class="scan-line"></div>
+
+    <div class="slide-content">
+        <div class="closing-emoji reveal-scale">🚀</div>
+        <h2 class="closing-title reveal">祝你考试顺利！</h2>
+        <p class="closing-text reveal">
+            祝你在信息技术期末考试中取得优异成绩！
+        </p>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <span class="meta-tag" style="cursor: pointer;" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">回到顶部</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     JAVASCRIPT: Slide Presentation Controller
+     =========================================== -->
+<script>
+/* ===========================================
+   INLINE EDITING SYSTEM
+   =========================================== */
+class InlineEditor {
+    constructor() {
+        this.isActive = false;
+        this.storageKey = 'slides_content_' + Date.now();
+        this.editableElements = document.querySelectorAll('h1, h2, h3, p, li, .feature-title, .feature-desc, .step-text, .info-card-title, .col-title');
+        this.toggleBtn = document.getElementById('editToggle');
+        this.hotzone = document.getElementById('editHotzone');
+        this.setupInteractions();
+        this.loadFromStorage();
+    }
+
+    setupInteractions() {
+        let hideTimeout = null;
+
+        // Toggle button click
+        this.toggleBtn.addEventListener('click', () => this.toggleEditMode());
+
+        // Hotzone hover with 400ms grace period
+        this.hotzone.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+            this.toggleBtn.classList.add('show');
+        });
+
+        this.hotzone.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                if (!this.isActive) this.toggleBtn.classList.remove('show');
+            }, 400);
+        });
+
+        this.toggleBtn.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+        this.toggleBtn.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                if (!this.isActive) this.toggleBtn.classList.remove('show');
+            }, 400);
+        });
+
+        // Hotzone click
+        this.hotzone.addEventListener('click', () => this.toggleEditMode());
+
+        // Keyboard shortcut (E key)
+        document.addEventListener('keydown', (e) => {
+            if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+                e.preventDefault();
+                this.toggleEditMode();
+            }
+            // Ctrl+S to save
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                this.saveToStorage();
+                this.showSaveNotification();
+            }
+        });
+    }
+
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        document.body.classList.toggle('editing', this.isActive);
+        this.toggleBtn.classList.toggle('active', this.isActive);
+
+        this.editableElements.forEach(el => {
+            el.setAttribute('contenteditable', this.isActive);
+        });
+    }
+
+    saveToStorage() {
+        const content = {};
+        this.editableElements.forEach((el, index) => {
+            content[index] = el.innerHTML;
+        });
+        localStorage.setItem(this.storageKey, JSON.stringify(content));
+    }
+
+    loadFromStorage() {
+        const saved = localStorage.getItem(this.storageKey);
+        if (saved) {
+            const content = JSON.parse(saved);
+            this.editableElements.forEach((el, index) => {
+                if (content[index]) el.innerHTML = content[index];
+            });
+        }
+    }
+
+    showSaveNotification() {
+        const notification = document.createElement('div');
+        notification.textContent = '✓ 已保存';
+        notification.style.cssText = `
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #00ffcc, #ff00aa);
+            color: #0a0f1c;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            z-index: 10002;
+            animation: fadeOut 2s ease forwards;
+        `;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 2000);
+    }
+}
+
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   =========================================== */
+class SlidePresentation {
+    constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.currentSlide = 0;
+        this.progressBar = document.getElementById('progressBar');
+        this.navDots = document.getElementById('navDots');
+
+        this.setupIntersectionObserver();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupProgressBar();
+        this.setupNavDots();
+        this.setupParticles();
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const index = Array.from(this.slides).indexOf(entry.target);
+                    this.currentSlide = index;
+                    this.updateProgressBar();
+                    this.updateNavDots();
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        this.slides.forEach(slide => observer.observe(slide));
+    }
+
+    setupKeyboardNav() {
+        document.addEventListener('keydown', (e) => {
+            // Skip if editing text
+            if (e.target.getAttribute('contenteditable') === 'true') return;
+            // Skip if edit mode is active
+            if (document.body.classList.contains('editing')) return;
+
+            switch(e.key) {
+                case 'ArrowDown':
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    this.goToSlide(this.currentSlide + 1);
+                    break;
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    this.goToSlide(this.currentSlide - 1);
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    this.goToSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    this.goToSlide(this.slides.length - 1);
+                    break;
+            }
+        });
+    }
+
+    setupTouchNav() {
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    this.goToSlide(this.currentSlide + 1);
+                } else {
+                    this.goToSlide(this.currentSlide - 1);
+                }
+            }
+        }, { passive: true });
+    }
+
+    goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index >= this.slides.length) index = this.slides.length - 1;
+
+        this.slides[index].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setupProgressBar() {
+        this.updateProgressBar();
+    }
+
+    updateProgressBar() {
+        const progress = ((this.currentSlide + 1) / this.slides.length) * 100;
+        this.progressBar.style.width = progress + '%';
+    }
+
+    setupNavDots() {
+        this.slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.addEventListener('click', () => this.goToSlide(index));
+            this.navDots.appendChild(dot);
+        });
+        this.updateNavDots();
+    }
+
+    updateNavDots() {
+        const dots = this.navDots.querySelectorAll('.nav-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+
+    setupParticles() {
+        // Randomize particle positions and timing
+        document.querySelectorAll('.particle').forEach((particle, i) => {
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = (i * 0.5) + 's';
+        });
+    }
+}
+
+// Add fadeOut animation for save notification
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeOut {
+        0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        70% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize
+const editor = new InlineEditor();
+const presentation = new SlidePresentation();
+</script>
+</body>
+</html>

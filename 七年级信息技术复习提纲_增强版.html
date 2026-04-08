@@ -1,0 +1,3174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>七年级信息技术复习提纲 - 增强版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   CSS CUSTOM PROPERTIES (NEON CYBER THEME)
+   =========================================== */
+:root {
+    /* Colors — Neon Cyber Palette */
+    --bg-dark: #0a0f1c;
+    --bg-darker: #050810;
+    --accent-cyan: #00ffcc;
+    --accent-magenta: #ff00aa;
+    --accent-blue: #4361ee;
+    --accent-green: #00ff88;
+    --accent-yellow: #ffcc00;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-dim: rgba(255, 255, 255, 0.3);
+
+    /* Glow Effects */
+    --glow-cyan: 0 0 20px rgba(0, 255, 204, 0.5), 0 0 40px rgba(0, 255, 204, 0.3);
+    --glow-magenta: 0 0 20px rgba(255, 0, 170, 0.5), 0 0 40px rgba(255, 0, 170, 0.3);
+
+    /* Typography — MUST use clamp() */
+    --font-display: 'Clash Display', sans-serif;
+    --font-body: 'Satoshi', sans-serif;
+    --font-mono: 'Satoshi', monospace;
+    --title-size: clamp(2rem, 6vw, 5rem);
+    --h2-size: clamp(1.5rem, 4vw, 3rem);
+    --h3-size: clamp(1.2rem, 3vw, 2rem);
+    --body-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    --small-size: clamp(0.7rem, 1.2vw, 0.9rem);
+
+    /* Spacing — MUST use clamp() */
+    --slide-padding: clamp(1.5rem, 4vw, 4rem);
+    --content-gap: clamp(1rem, 2vw, 2rem);
+    --element-gap: clamp(0.5rem, 1vw, 1rem);
+
+    /* Animation */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-normal: 0.6s;
+}
+
+/* ===========================================
+   BASE STYLES & RESET
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* ===========================================
+   VIEWPORT FITTING: MANDATORY BASE STYLES
+   =========================================== */
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 100%;
+    overflow: hidden;
+    padding: var(--slide-padding);
+}
+
+:root {
+    --title-size: clamp(1.5rem, 5vw, 4rem);
+    --h2-size: clamp(1.25rem, 3.5vw, 2.5rem);
+    --h3-size: clamp(1rem, 2.5vw, 1.75rem);
+    --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
+    --small-size: clamp(0.65rem, 1vw, 0.875rem);
+    --slide-padding: clamp(1rem, 4vw, 4rem);
+    --content-gap: clamp(0.5rem, 2vw, 2rem);
+    --element-gap: clamp(0.25rem, 1vw, 1rem);
+}
+
+.card, .container, .content-box {
+    max-width: min(90vw, 1000px);
+    max-height: min(80vh, 700px);
+}
+
+.feature-list, .bullet-list {
+    gap: clamp(0.4rem, 1vh, 1rem);
+}
+
+.feature-list li, .bullet-list li {
+    font-size: var(--body-size);
+    line-height: 1.4;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+img, .image-container {
+    max-width: 100%;
+    max-height: min(50vh, 400px);
+    object-fit: contain;
+}
+
+/* Responsive Breakpoints */
+@media (max-height: 700px) {
+    :root {
+        --slide-padding: clamp(0.75rem, 3vw, 2rem);
+        --content-gap: clamp(0.4rem, 1.5vw, 1rem);
+        --title-size: clamp(1.25rem, 4.5vw, 2.5rem);
+        --h2-size: clamp(1rem, 3vw, 1.75rem);
+    }
+}
+
+@media (max-height: 600px) {
+    :root {
+        --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+        --content-gap: clamp(0.3rem, 1vw, 0.75rem);
+        --title-size: clamp(1.1rem, 4vw, 2rem);
+        --body-size: clamp(0.7rem, 1.2vw, 0.95rem);
+    }
+
+    .nav-dots, .keyboard-hint, .decorative {
+        display: none;
+    }
+}
+
+@media (max-height: 500px) {
+    :root {
+        --slide-padding: clamp(0.4rem, 2vw, 1rem);
+        --title-size: clamp(1rem, 3.5vw, 1.5rem);
+        --h2-size: clamp(0.9rem, 2.5vw, 1.25rem);
+        --body-size: clamp(0.65rem, 1vw, 0.85rem);
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --title-size: clamp(1.25rem, 7vw, 2.5rem);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .particle, .scan-line {
+        display: none;
+    }
+}
+
+/* ===========================================
+   NEON CYBER SPECIFIC STYLES
+   =========================================== */
+
+/* Grid pattern background */
+.grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+    background-size: clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px);
+    pointer-events: none;
+}
+
+/* Particle effects */
+.particle {
+    position: absolute;
+    width: clamp(2px, 0.3vw, 4px);
+    height: clamp(2px, 0.3vw, 4px);
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    opacity: 0;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.particle.magenta {
+    background: var(--accent-magenta);
+}
+
+@keyframes float {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(calc(-1 * clamp(10px, 3vh, 30px))) scale(1.5);
+    }
+}
+
+/* Scan line effect */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    opacity: 0.3;
+    animation: scan 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* Progress bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+/* Navigation dots */
+.nav-dots {
+    position: fixed;
+    right: clamp(1rem, 2vw, 2rem);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    z-index: 100;
+}
+
+.nav-dot {
+    width: clamp(8px, 1vw, 12px);
+    height: clamp(8px, 1vw, 12px);
+    border-radius: 50%;
+    background: var(--text-dim);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot:hover {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.nav-dot.active {
+    background: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+/* Unit badge */
+.unit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 0.6rem);
+    padding: clamp(0.4rem, 0.8vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem);
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.2), rgba(255, 0, 170, 0.2));
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--content-gap);
+}
+
+/* Slide titles */
+.slide-title {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--content-gap);
+    line-height: 1.2;
+}
+
+.slide-title .accent {
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.slide-title .accent-magenta {
+    color: var(--accent-magenta);
+    text-shadow: var(--glow-magenta);
+}
+
+/* Content lists */
+.content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+.content-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(0.5rem, 1vw, 0.8rem);
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: clamp(0.5rem, 1vw, 0.8rem);
+    border-left: 2px solid rgba(0, 255, 204, 0.2);
+    transition: border-color 0.3s ease;
+}
+
+.content-list li:hover {
+    border-left-color: var(--accent-cyan);
+    color: var(--text-primary);
+}
+
+.content-list li::before {
+    content: '▹';
+    color: var(--accent-cyan);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* Two column layout */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    max-width: min(95vw, 1400px);
+}
+
+@media (max-width: 768px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.col-title {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+/* Info cards */
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 204, 0.1);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.info-card-title {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.info-card-title .highlight {
+    color: var(--accent-magenta);
+}
+
+/* Keyword tag */
+.keyword {
+    display: inline-block;
+    padding: clamp(0.2rem, 0.5vw, 0.3rem) clamp(0.5rem, 1vw, 0.8rem);
+    background: rgba(255, 0, 170, 0.15);
+    border: 1px solid rgba(255, 0, 170, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    color: var(--accent-magenta);
+}
+
+/* Definition box */
+.definition-box {
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.05), rgba(67, 97, 238, 0.05));
+    border-left: 3px solid var(--accent-cyan);
+    padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    margin: clamp(0.8rem, 1.5vw, 1.2rem) 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.definition-box strong {
+    color: var(--accent-cyan);
+}
+
+/* Process steps */
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.step-num {
+    flex-shrink: 0;
+    width: clamp(32px, 4vw, 48px);
+    height: clamp(32px, 4vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    color: var(--bg-dark);
+    font-family: var(--font-display);
+    font-size: var(--body-size);
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.step-text {
+    flex: 1;
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+}
+
+/* Feature grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 255, 204, 0.1);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(0, 255, 204, 0.05);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.feature-icon {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.feature-title {
+    font-family: var(--font-display);
+    font-size: var(--body-size);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-bottom: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+
+.feature-desc {
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    color: var(--text-dim);
+}
+
+/* Table style */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--body-size);
+}
+
+.data-table th,
+.data-table td {
+    padding: clamp(0.6rem, 1.2vw, 1rem);
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+}
+
+.data-table th {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    background: rgba(0, 255, 204, 0.05);
+}
+
+.data-table td {
+    color: var(--text-secondary);
+}
+
+.data-table tr:hover td {
+    background: rgba(0, 255, 204, 0.03);
+}
+
+/* Warning box */
+.warning-box {
+    background: rgba(255, 0, 170, 0.05);
+    border: 1px solid rgba(255, 0, 170, 0.2);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.warning-box-title {
+    color: var(--accent-magenta);
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+/* ===========================================
+   ANIMATIONS (Reveal on scroll)
+   =========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--duration-normal) var(--ease-out-expo),
+                transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.slide.visible .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal:nth-child(1) { transition-delay: 0.1s; }
+.reveal:nth-child(2) { transition-delay: 0.2s; }
+.reveal:nth-child(3) { transition-delay: 0.3s; }
+.reveal:nth-child(4) { transition-delay: 0.4s; }
+.reveal:nth-child(5) { transition-delay: 0.5s; }
+.reveal:nth-child(6) { transition-delay: 0.6s; }
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s, transform 0.6s var(--ease-out-expo);
+}
+
+.slide.visible .reveal-scale {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.reveal-blur {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.8s, filter 0.8s var(--ease-out-expo);
+}
+
+.slide.visible .reveal-blur {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* ===========================================
+   EXAMPLE SLIDE STYLES
+   =========================================== */
+.example-slide {
+    background: linear-gradient(135deg, rgba(10, 15, 28, 0.98), rgba(15, 20, 35, 0.98));
+}
+
+.example-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.3rem, 0.6vw, 0.5rem);
+    padding: clamp(0.3rem, 0.6vw, 0.5rem) clamp(0.8rem, 1.5vw, 1.2rem);
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.2), rgba(255, 0, 170, 0.2));
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--content-gap);
+}
+
+.example-box {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid var(--accent-yellow);
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    border-radius: 0 8px 8px 0;
+}
+
+.example-box-title {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--accent-yellow);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.example-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin: clamp(1rem, 2vw, 2rem) 0;
+}
+
+.example-comparison-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 204, 0.1);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.example-comparison-item.bad {
+    border-color: rgba(255, 0, 170, 0.3);
+}
+
+.example-comparison-item.good {
+    border-color: rgba(0, 255, 204, 0.3);
+}
+
+.example-label {
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.example-comparison-item.bad .example-label {
+    color: var(--accent-magenta);
+}
+
+.example-comparison-item.good .example-label {
+    color: var(--accent-cyan);
+}
+
+.code-block {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 204, 0.2);
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    font-family: 'Courier New', monospace;
+    font-size: clamp(0.75rem, 1.3vw, 1rem);
+    color: var(--accent-cyan);
+    overflow-x: auto;
+    line-height: 1.5;
+}
+
+.code-block .tag {
+    color: var(--accent-magenta);
+}
+
+.code-block .attr {
+    color: var(--accent-yellow);
+}
+
+.code-block .value {
+    color: var(--accent-green);
+}
+
+/* ===========================================
+   QUIZ SLIDE STYLES
+   =========================================== */
+.quiz-slide {
+    background: linear-gradient(135deg, rgba(10,15,28,0.98), rgba(15,20,35,0.98));
+}
+
+.quiz-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 0.6rem);
+    padding: clamp(0.4rem, 0.8vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 204, 255, 0.2));
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-green);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.quiz-progress {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--text-dim);
+}
+
+.quiz-progress-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.quiz-content {
+    max-height: calc(100vh - clamp(8rem, 15vh, 12rem));
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.quiz-question {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2.2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: clamp(0.6rem, 1.2vw, 1rem);
+    line-height: 1.4;
+}
+
+.quiz-question-num {
+    color: var(--accent-cyan);
+    margin-right: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 0.8rem);
+    max-width: min(90vw, 800px);
+}
+
+.quiz-option {
+    padding: clamp(0.6rem, 1.2vw, 1rem);
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(0, 255, 204, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+.quiz-option:hover {
+    background: rgba(0, 255, 204, 0.05);
+    border-color: var(--accent-cyan);
+}
+
+.quiz-option.selected {
+    background: rgba(0, 255, 204, 0.1);
+    border-color: var(--accent-cyan);
+}
+
+.quiz-option.correct {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--accent-green);
+}
+
+.quiz-option.incorrect {
+    background: rgba(255, 0, 170, 0.2);
+    border-color: var(--accent-magenta);
+}
+
+.quiz-option-letter {
+    flex-shrink: 0;
+    width: clamp(28px, 3.5vw, 36px);
+    height: clamp(28px, 3.5vw, 36px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 204, 0.1);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-size: clamp(0.75rem, 1.3vw, 0.9rem);
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+.quiz-option.correct .quiz-option-letter {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+.quiz-option.incorrect .quiz-option-letter {
+    background: rgba(255, 0, 170, 0.2);
+    border-color: var(--accent-magenta);
+    color: var(--accent-magenta);
+}
+
+.quiz-option-text {
+    flex: 1;
+    font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+    color: var(--text-secondary);
+}
+
+.quiz-feedback {
+    margin-top: clamp(0.6rem, 1.2vw, 1rem);
+    padding: clamp(0.7rem, 1.5vw, 1.2rem);
+    border-radius: 8px;
+    display: none;
+    max-width: min(90vw, 800px);
+}
+
+.quiz-feedback.show {
+    display: block;
+}
+
+.quiz-feedback.correct {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.quiz-feedback.incorrect {
+    background: rgba(255, 0, 170, 0.1);
+    border: 1px solid rgba(255, 0, 170, 0.3);
+}
+
+.quiz-feedback-title {
+    font-family: var(--font-display);
+    font-size: clamp(0.9rem, 2vw, 1.3rem);
+    font-weight: 600;
+    margin-bottom: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+
+.quiz-feedback.correct .quiz-feedback-title {
+    color: var(--accent-green);
+}
+
+.quiz-feedback.incorrect .quiz-feedback-title {
+    color: var(--accent-magenta);
+}
+
+.quiz-feedback-text {
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.quiz-next-btn {
+    margin-top: clamp(0.6rem, 1.2vw, 1rem);
+    padding: clamp(0.6rem, 1.2vw, 1rem) clamp(2rem, 4vw, 3rem);
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+    border: none;
+    border-radius: 30px;
+    color: var(--bg-dark);
+    font-family: var(--font-display);
+    font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.quiz-next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-cyan);
+}
+
+/* Quiz Score Screen */
+.quiz-score-screen {
+    text-align: center;
+    padding: clamp(1rem, 2vw, 2rem) 0;
+}
+
+.quiz-score-display {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-cyan);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.quiz-score-text {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+}
+
+.quiz-score-message {
+    font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+    color: var(--text-dim);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+    line-height: 1.4;
+}
+
+.quiz-score-actions {
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.quiz-retry-btn,
+.quiz-continue-btn {
+    padding: clamp(0.6rem, 1.2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+    border: none;
+    border-radius: 30px;
+    font-family: var(--font-display);
+    font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-retry-btn {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+    color: var(--bg-dark);
+}
+
+.quiz-continue-btn {
+    background: transparent;
+    border: 2px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.quiz-retry-btn:hover,
+.quiz-continue-btn:hover {
+    transform: translateY(-2px);
+}
+
+.quiz-retry-btn:hover {
+    box-shadow: var(--glow-cyan);
+}
+
+/* ===========================================
+   TITLE SLIDE STYLES
+   =========================================== */
+.title-slide {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title-main {
+    font-family: var(--font-display);
+    font-size: var(--title-size);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.title-main .neon-cyan {
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.title-main .neon-magenta {
+    color: var(--accent-magenta);
+    text-shadow: var(--glow-magenta);
+}
+
+.title-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+.title-meta {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meta-tag {
+    padding: clamp(0.4rem, 0.8vw, 0.6rem) clamp(1rem, 2vw, 1.5rem);
+    background: rgba(0, 255, 204, 0.1);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--accent-cyan);
+}
+
+/* ===========================================
+   INLINE EDITING STYLES
+   =========================================== */
+.edit-hotzone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.edit-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10001;
+}
+
+.edit-toggle.show,
+.edit-toggle.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.edit-toggle:hover {
+    transform: scale(1.1);
+}
+
+.edit-toggle.active {
+    box-shadow: var(--glow-cyan);
+}
+
+.edit-hint {
+    position: fixed;
+    bottom: clamp(1rem, 2vw, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: var(--small-size);
+    color: var(--text-dim);
+    padding: clamp(0.5rem, 1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.edit-toggle.active ~ .edit-hint {
+    opacity: 1;
+}
+
+.editing [contenteditable="true"] {
+    outline: 2px dashed var(--accent-cyan);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.editing [contenteditable="true"]:focus {
+    outline: 2px solid var(--accent-magenta);
+    background: rgba(255, 0, 170, 0.05);
+}
+
+/* ===========================================
+   UNIT SLIDE STYLES
+   =========================================== */
+
+.unit-slide {
+    justify-content: center;
+}
+
+.unit-number {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 12rem);
+    font-weight: 700;
+    color: rgba(0, 255, 204, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.unit-content {
+    position: relative;
+    z-index: 1;
+    max-width: min(90vw, 900px);
+}
+
+/* CLOSING SLIDE */
+.closing-slide {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.closing-emoji {
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.closing-title {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    color: var(--accent-cyan);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.closing-text {
+    font-size: var(--body-size);
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+/* ===========================================
+   KEYBOARD HINT
+   =========================================== */
+.keyboard-hint {
+    position: fixed;
+    bottom: clamp(1rem, 2vw, 2rem);
+    right: clamp(1rem, 2vw, 2rem);
+    display: flex;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    font-family: var(--font-mono);
+    font-size: clamp(0.6rem, 1vw, 0.75rem);
+    color: var(--text-dim);
+    z-index: 100;
+}
+
+.key {
+    padding: clamp(0.2rem, 0.4vw, 0.3rem) clamp(0.5rem, 1vw, 0.7rem);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Platform icons */
+.platform-icons {
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--content-gap);
+}
+
+.platform-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+
+.platform-icon .icon {
+    width: clamp(40px, 6vw, 60px);
+    height: clamp(40px, 6vw, 60px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 204, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.platform-icon .name {
+    font-size: var(--small-size);
+    color: var(--text-dim);
+}
+</style>
+</head>
+<body>
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Edit Hotzone & Toggle -->
+<div class="edit-hotzone" id="editHotzone" title="编辑模式"></div>
+<button class="edit-toggle" id="editToggle" title="编辑模式 (按 E)">✏️</button>
+
+<!-- Navigation Dots -->
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- Keyboard Hint -->
+<div class="keyboard-hint">
+    <span class="key">↑</span>
+    <span class="key">↓</span>
+    <span class="key">空格</span>
+    <span>导航</span>
+    <span class="key" style="margin-left: 0.5rem;">E</span>
+    <span>编辑</span>
+</div>
+
+<!-- ===========================================
+     SLIDE 1: Title Slide
+     =========================================== -->
+<section class="slide title-slide">
+    <div class="grid-bg"></div>
+    <div class="particle" style="top: 20%; left: 10%;"></div>
+    <div class="particle magenta" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+    <div class="particle" style="top: 80%; left: 30%; animation-delay: 2s;"></div>
+    <div class="particle magenta" style="top: 40%; left: 70%; animation-delay: 3s;"></div>
+    <div class="scan-line"></div>
+
+    <div class="slide-content">
+        <h1 class="title-main reveal">
+            <span class="neon-cyan">七年级</span><br>
+            <span class="neon-magenta">信息技术</span><br>
+            <span style="color: var(--text-primary);">复习提纲</span>
+        </h1>
+        <p class="title-subtitle reveal">互联网 · 信息处理 · 网站制作 · 网络原理 · 创新应用 · 安全防范 · 人工智能</p>
+        <div class="title-meta reveal">
+            <span class="meta-tag">7个单元</span>
+            <span class="meta-tag">50+ 知识点</span>
+            <span class="meta-tag">互动测验</span>
+            <span class="meta-tag">期末复习</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 2: Unit 1 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">01</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit One</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">互联网</span>及其影响
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            互联网的起源、应用特征、发展趋势与潜在风险
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 3: Unit 1 - 互联网起源
+     =========================================== -->
+<section class="slide list-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">互联网的<span class="accent">起源</span></h2>
+        <ul class="content-list">
+            <li class="reveal"><strong>起源：</strong>与阿帕网（ARPANET）有关，中国于1994年接入互联网</li>
+            <li class="reveal"><strong>互联网应用及功能：</strong>搜索引擎、即时通信、在线支付等</li>
+            <li class="reveal"><strong>互联网应用特征：</strong>操作简单、交互性强、图文声像并茂</li>
+            <li class="reveal"><strong>"互联网+"：</strong>"互联网+各传统行业"，推动传统行业转型升级</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 4: Unit 1 - 互联网潜在风险
+     =========================================== -->
+<section class="slide list-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">互联网<span class="accent-magenta">潜在风险</span></h2>
+        <ul class="content-list">
+            <li class="reveal">信息安全与隐私保护问题</li>
+            <li class="reveal">青少年网络成瘾与心理健康影响</li>
+            <li class="reveal">信息过载与虚假信息传播</li>
+            <li class="reveal">数字鸿沟与社会不平等加剧</li>
+            <li class="reveal">网络暴力与不良文化影响</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 5: Unit 1 - 实例展示
+     =========================================== -->
+<section class="slide example-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="example-badge reveal">实例展示</div>
+        <h2 class="slide-title reveal">"互联网+" 在我们身边</h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">📚</div>
+                <div class="feature-title">智慧课堂</div>
+                <div class="feature-desc">在线教学、智能批改、个性化学习</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">💰</div>
+                <div class="feature-title">在线支付</div>
+                <div class="feature-desc">微信支付、支付宝、无现金生活</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🚲</div>
+                <div class="feature-title">共享出行</div>
+                <div class="feature-desc">共享单车、网约车、智慧交通</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🍔</div>
+                <div class="feature-title">本地生活</div>
+                <div class="feature-desc">美团外卖、饿了么、生鲜配送</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🏥</div>
+                <div class="feature-title">互联网医疗</div>
+                <div class="feature-desc">在线问诊、预约挂号、健康咨询</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🎮</div>
+                <div class="feature-title">数字娱乐</div>
+                <div class="feature-desc">网络游戏、在线视频、直播互动</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 6: Unit 1 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit1">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第一单元 · 互联网及其影响</h2>
+        <div class="quiz-content" id="quiz-content-unit1">
+            <!-- Quiz questions will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 7: Unit 2 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">02</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Two</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">互联网信息</span>处理
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            搜索引擎、信息种类、管理方式与微视频制作
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 8: Unit 2 - 搜索引擎
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">搜索引擎工作原理</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">三大环节</h3>
+                <div class="info-card">
+                    <p><span class="keyword">抓取</span> — 网络爬虫自动收集网页</p>
+                </div>
+                <div class="info-card">
+                    <p><span class="keyword">索引</span> — 建立数据库索引</p>
+                </div>
+                <div class="info-card">
+                    <p><span class="keyword">排序</span> — 按相关性排列结果</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">搜索引擎分类</h3>
+                <ul class="content-list">
+                    <li>全文搜索引擎</li>
+                    <li>垂直搜索引擎</li>
+                    <li>元搜索引擎</li>
+                    <li>目录搜索引擎</li>
+                </ul>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>技巧：</strong>使用引号可精确匹配关键词
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 9: Unit 2 - 信息种类
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">信息<span class="accent">种类</span>与格式</h2>
+        <table class="data-table reveal">
+            <thead>
+                <tr>
+                    <th>信息类型</th>
+                    <th>常见格式</th>
+                    <th>用途</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>📄 文字</td>
+                    <td>txt、wps、docx、doc</td>
+                    <td>文档、笔记</td>
+                </tr>
+                <tr>
+                    <td>🖼️ 图片</td>
+                    <td>JPG、PNG、GIF、BMP</td>
+                    <td>照片、设计图</td>
+                </tr>
+                <tr>
+                    <td>🎵 音频</td>
+                    <td>MP3、WMA、WAV</td>
+                    <td>音乐、录音</td>
+                </tr>
+                <tr>
+                    <td>🎬 视频</td>
+                    <td>MP4、AVI、FLV、WMV</td>
+                    <td>电影、动画</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="definition-box">
+                <strong>管理方式：</strong>本地管理、在线管理 | <strong>管理工具：</strong>云存储、云文档、云笔记
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 10: Unit 2 - 微视频制作与交流规范
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">微视频<span class="accent">制作流程</span>与<span class="accent-magenta">交流规范</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">制作流程</h3>
+                <div class="process-steps">
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <span class="step-text"><strong>前期：</strong>明确主题、分析策划</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <span class="step-text"><strong>中期：</strong>采集素材、加工素材</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <span class="step-text"><strong>后期：</strong>集成作品、发布作品</span>
+                    </div>
+                </div>
+                <div class="info-card" style="margin-top: 1rem;">
+                    <span class="info-card-title">信息交流特点</span>
+                    <p style="color: var(--text-secondary);">即时性、互动性、多媒体性、开放性、便捷性</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">交流规范</h3>
+                <ul class="content-list">
+                    <li>遵纪守法，维护公序良俗</li>
+                    <li>文明交互，尊重他人</li>
+                    <li>保护隐私，严守数据安全</li>
+                    <li>抵制谣言，传播真相</li>
+                    <li>尊重原创，规范引用</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 11: Unit 2 - 实例展示
+     =========================================== -->
+<section class="slide example-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="example-badge reveal">搜索技巧对比</div>
+        <h2 class="slide-title reveal">精确匹配 vs 模糊搜索</h2>
+        <div class="example-comparison">
+            <div class="example-comparison-item bad reveal">
+                <div class="example-label">❌ 模糊搜索</div>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                    搜索：<span class="value">人工智能</span>
+                </div>
+                <p style="font-size: var(--small-size); color: var(--text-dim); margin-top: 0.8rem;">
+                    结果：包含"人工"和"智能"两个词的所有网页<br>
+                    数量：约1亿条结果
+                </p>
+            </div>
+            <div class="example-comparison-item good reveal">
+                <div class="example-label">✅ 精确匹配</div>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                    搜索：<span class="value">"人工智能"</span>
+                </div>
+                <p style="font-size: var(--small-size); color: var(--text-dim); margin-top: 0.8rem;">
+                    结果：完整包含"人工智能"这个词组的网页<br>
+                    数量：约1000万条结果
+                </p>
+            </div>
+        </div>
+        <div class="definition-box reveal" style="margin-top: var(--content-gap);">
+            <strong>提示：</strong>使用引号可以让搜索引擎精确匹配你要找的完整词组，大幅减少无关结果！
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 12: Unit 2 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit2">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第二单元 · 互联网信息处理</h2>
+        <div class="quiz-content" id="quiz-content-unit2">
+            <!-- Quiz questions will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 13: Unit 3 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">03</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Three</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">网站制作</span>
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            网站数据构成、版面规划、开发流程与HTML基础
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 14: Unit 3 - 网站数据构成
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">互联网的<span class="accent">数据构成</span></h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">📝</div>
+                <div class="feature-title">文本数据</div>
+                <div class="feature-desc">文字内容、标题、描述</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🖼️</div>
+                <div class="feature-title">图像数据</div>
+                <div class="feature-desc">图片、图标、插画</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🎵</div>
+                <div class="feature-title">音频数据</div>
+                <div class="feature-desc">背景音乐、音效</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🎬</div>
+                <div class="feature-title">视频数据</div>
+                <div class="feature-desc">视频文件、动画</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">👆</div>
+                <div class="feature-title">用户行为数据</div>
+                <div class="feature-desc">点击、浏览、交互</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">其他数据</div>
+                <div class="feature-desc">数据库、配置文件</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 15: Unit 3 - 网站规划与工具
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">网站<span class="accent">规划</span>与<span class="accent">工具</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">网站导航类型</h3>
+                <ul class="content-list">
+                    <li>全局导航 — 主菜单</li>
+                    <li>局部导航 — 子菜单</li>
+                    <li>面包屑导航 — 位置提示</li>
+                </ul>
+                <h3 class="col-title" style="margin-top: 1.5rem;">团队分工</h3>
+                <ul class="content-list">
+                    <li>项目经理</li>
+                    <li>美工设计师</li>
+                    <li>内容编辑</li>
+                    <li>前端/后端开发</li>
+                    <li>测试人员</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">开发流程</h3>
+                <div class="process-steps">
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 24px; height: 24px; font-size: 0.8rem;">1</span>
+                        <span class="step-text">网站规划</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 24px; height: 24px; font-size: 0.8rem;">2</span>
+                        <span class="step-text">素材准备</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 24px; height: 24px; font-size: 0.8rem;">3</span>
+                        <span class="step-text">网站开发</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 24px; height: 24px; font-size: 0.8rem;">4</span>
+                        <span class="step-text">测试发布维护</span>
+                    </div>
+                </div>
+                <div class="info-card" style="margin-top: 1rem;">
+                    <span class="info-card-title">常用工具</span>
+                    <p style="color: var(--text-secondary); font-size: var(--small-size);">Dreamweaver、VS Code、在线编辑器</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 16: Unit 3 - HTML基础
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">HTML</span> 基础</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <div class="info-card">
+                    <span class="info-card-title">网页文件格式</span>
+                    <p style="font-size: var(--body-size); color: var(--text-secondary);">.html</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-title">HTML标签类型</span>
+                    <p style="font-size: var(--body-size); color: var(--text-secondary);">单标签 和 双标签</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-title">opacity属性</span>
+                    <p style="font-size: var(--body-size); color: var(--text-secondary);">范围 0.0-1.0</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="definition-box">
+                    <strong>opacity 示例：</strong><br>
+                    0.0 = 完全透明<br>
+                    0.5 = 半透明<br>
+                    1.0 = 完全不透明
+                </div>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>网页发布方式：</strong><br>
+                    局域网发布、互联网发布（需申请域名、网络备案）
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 17: Unit 3 - HTML代码示例
+     =========================================== -->
+<section class="slide example-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="example-badge reveal">代码示例</div>
+        <h2 class="slide-title reveal">HTML 网页结构</h2>
+        <div class="code-block reveal" style="max-width: min(90vw, 800px); margin: 0 auto;">
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+  <span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;title&gt;</span><span class="value">我的第一个网页</span><span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;/head&gt;</span>
+  <span class="tag">&lt;body</span> <span class="attr">style</span>=<span class="value">"background-color: #FFFFFF; opacity: 0.8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;h1&gt;</span><span class="value">你好，世界！</span><span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span><span class="value">这是一个段落。</span><span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+        </div>
+        <div class="definition-box reveal" style="margin-top: var(--content-gap); max-width: min(90vw, 800px); margin-left: auto; margin-right: auto;">
+            <strong>代码解析：</strong><br>
+            • <code>&lt;!DOCTYPE html&gt;</code> — 声明文档类型<br>
+            • <code>&lt;html&gt;</code> — 根标签<br>
+            • <code>&lt;head&gt;</code> — 头部信息（标题、样式等）<br>
+            • <code>&lt;body&gt;</code> — 网页主体内容<br>
+            • <code>opacity: 0.8</code> — 设置80%不透明度
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 18: Unit 3 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit3">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第三单元 · 网站制作</h2>
+        <div class="quiz-content" id="quiz-content-unit3">
+            <!-- Quiz questions will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 19: Unit 4 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">04</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Four</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">互联网基本原理</span>
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            网络分类、IP地址、域名系统与网络协议
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 20: Unit 4 - 网络分类
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">网络<span class="accent">分类</span>与连接</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">网络分类</h3>
+                <ul class="content-list">
+                    <li><span class="keyword">LAN</span> — 局域网（学校、办公室）</li>
+                    <li><span class="keyword">WAN</span> — 广域网（互联网）</li>
+                </ul>
+                <h3 class="col-title" style="margin-top: 1.5rem;">网络连接设备</h3>
+                <div class="info-card">
+                    <p><strong>路由器：</strong>路由选择、数据转发</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">网络连接方式</h3>
+                <ul class="content-list">
+                    <li><strong>有线：</strong>双绞线、光纤</li>
+                    <li><strong>无线：</strong>Wi-Fi、蓝牙</li>
+                </ul>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>常用命令：</strong><br>
+                    • ipconfig/all — 查看IP配置<br>
+                    • ping — 检测连通性
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 21: Unit 4 - IP地址
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">IP</span> 地址</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <div class="info-card">
+                    <span class="info-card-title">定义</span>
+                    <p style="color: var(--text-secondary);">标识互联网中每台主机和路由器，具有唯一性</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-title">组成</span>
+                    <p style="color: var(--text-secondary);">网络号 + 主机号</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-title">地址分类</span>
+                    <p style="color: var(--text-secondary);">公有地址（全球唯一）<br>私有地址（内部使用）</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>类型</th>
+                            <th>位数</th>
+                            <th>示例</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IPv4</td>
+                            <td>32位</td>
+                            <td>192.168.0.111</td>
+                        </tr>
+                        <tr>
+                            <td>IPv6</td>
+                            <td>128位</td>
+                            <td>更多地址空间</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>私有地址范围：</strong><br>
+                    10.0.0.0 - 10.255.255.255<br>
+                    172.16.0.0 - 172.31.255.255<br>
+                    192.168.0.0 - 192.168.255.255
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 22: Unit 4 - 域名与协议
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">域名与<span class="accent">网络协议</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">域名系统 DNS</h3>
+                <ul class="content-list">
+                    <li>将域名转换为IP地址</li>
+                    <li>URL：统一资源定位符</li>
+                </ul>
+                <div class="example-box" style="margin-top: 1rem;">
+                    <div class="example-box-title">DNS解析示例</div>
+                    <div class="code-block" style="margin-top: 0.5rem;">
+<span class="value">www.baidu.com</span>
+  <span style="color: var(--text-dim);">↓ DNS解析</span>
+<span class="tag">110.242.68.66</span>
+                    </div>
+                </div>
+                <div class="info-card" style="margin-top: 1rem;">
+                    <span class="info-card-title">电子邮件格式</span>
+                    <p style="color: var(--text-secondary);">用户名@邮件服务器域名</p>
+                    <p style="font-size: var(--small-size); color: var(--text-dim);">如：student@163.com</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">网络协议</h3>
+                <ul class="content-list">
+                    <li><strong>HTTP：</strong>超文本传输协议</li>
+                    <li><strong>SMTP：</strong>发送邮件</li>
+                    <li><strong>POP3：</strong>接收邮件</li>
+                    <li><strong>IMAP：</strong>同步邮件</li>
+                    <li><strong>TCP/IP：</strong>基础通信协议</li>
+                </ul>
+                <div class="definition-box" style="margin-top: 1rem;">
+                    <strong>协议类比：</strong><br>
+                    HTTP = 快递单（告诉送什么）<br>
+                    TCP = 物流系统（确保送达）<br>
+                    IP = 地址（送到哪里）
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 23: Unit 4 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit4">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第四单元 · 互联网基本原理</h2>
+        <div class="quiz-content" id="quiz-content-unit4">
+            <!-- Quiz questions will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 24: Unit 5 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">05</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Five</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">互联网创新应用</span>
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            在线学习、协同工作、智能会议与AI工具
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 25: Unit 5 - 在线学习
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal"><span class="accent">在线学习</span>平台</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">在线学习平台分类</h3>
+                <ul class="content-list">
+                    <li>权威教育平台</li>
+                    <li>专业知识网站</li>
+                    <li>学术资源数据库</li>
+                    <li>信息检索工具</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">在线学习特点</h3>
+                <ul class="content-list">
+                    <li>打破时空限制</li>
+                    <li>海量学习资源</li>
+                    <li>支持个性化学习</li>
+                    <li>沉浸式互动体验</li>
+                </ul>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card" style="max-width: min(90vw, 1000px); margin: 0 auto;">
+                <span class="info-card-title">"互联网+" 重构工作模式</span>
+                <p style="color: var(--text-secondary);">提升协作效率 · 优化业务流程 · 促进知识共享 · 辅助科学决策</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 26: Unit 5 - 智能工具
+     =========================================== -->
+<section class="slide two-col-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">智能<span class="accent">会议与AI</span>工具</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">智能会议助手功能</h3>
+                <ul class="content-list">
+                    <li>会议资料管理</li>
+                    <li>智能语音识别</li>
+                    <li>会议内容自动记录</li>
+                    <li>智能摘要生成</li>
+                    <li>会议过程管理</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">数据驱动决策流程</h3>
+                <div class="process-steps">
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 28px; height: 28px; font-size: 0.8rem;">1</span>
+                        <span class="step-text">数据采集整理</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 28px; height: 28px; font-size: 0.8rem;">2</span>
+                        <span class="step-text">数据分析</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 28px; height: 28px; font-size: 0.8rem;">3</span>
+                        <span class="step-text">数据可视化</span>
+                    </div>
+                    <div class="step" style="font-size: var(--small-size);">
+                        <span class="step-num" style="width: 28px; height: 28px; font-size: 0.8rem;">4</span>
+                        <span class="step-text">科学决策优化</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 27: Unit 5 - 常用平台展示
+     =========================================== -->
+<section class="slide example-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="example-badge reveal">常用平台</div>
+        <h2 class="slide-title reveal">常用互联网工具平台</h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">生成式AI平台</h3>
+                <div class="content-list">
+                    <li>豆包（字节跳动）</li>
+                    <li>DeepSeek（深度求索）</li>
+                    <li>文心一言（百度）</li>
+                    <li>通义千问（阿里）</li>
+                    <li>Kimi（月之暗面）</li>
+                </div>
+                <h3 class="col-title" style="margin-top: 1.5rem;">云存储</h3>
+                <div class="content-list">
+                    <li>百度网盘</li>
+                    <li>阿里云盘</li>
+                    <li>腾讯微盘</li>
+                    <li>夸克网盘</li>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">云文档协作</h3>
+                <div class="content-list">
+                    <li>WPS云文档</li>
+                    <li>腾讯文档</li>
+                    <li>石墨文档</li>
+                    <li>飞书文档</li>
+                </div>
+                <h3 class="col-title" style="margin-top: 1.5rem;">搜索引擎</h3>
+                <div class="content-list">
+                    <li>百度</li>
+                    <li>必应</li>
+                    <li>360搜索</li>
+                    <li>Google</li>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 28: Unit 5 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit5">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第五单元 · 互联网创新应用</h2>
+        <div class="quiz-content" id="quiz-content-unit5">
+            <!-- Quiz questions will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 29: Unit 6 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">06</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Six</div>
+        <h2 class="slide-title reveal">
+            <span class="accent-magenta">互联网安全</span>与防范
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            网络风险识别、身份验证与数据加密
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 30: Unit 6 - 网络风险与防范
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">常见风险与<span class="accent-magenta">防范措施</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title" style="color: var(--accent-magenta);">⚠️ 常见风险</h3>
+                <ul class="content-list">
+                    <li>网络诈骗</li>
+                    <li>恶意软件</li>
+                    <li>信息泄露</li>
+                    <li>网络欺凌</li>
+                    <li>生成式AI新风险</li>
+                </ul>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title" style="color: var(--accent-cyan);">🛡️ 防范措施</h3>
+                <ul class="content-list">
+                    <li>安装配置防火墙</li>
+                    <li>定期更新系统</li>
+                    <li>设置复杂密码</li>
+                    <li>防范恶意软件</li>
+                    <li>提高安全意识</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 31: Unit 6 - 身份验证
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">身份验证<span class="accent">三大因素</span></h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-title">知识因子</div>
+                <div class="feature-desc">密码、PIN码、图案锁</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">持有因子</div>
+                <div class="feature-desc">手机、U盾、智能卡</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">👤</div>
+                <div class="feature-title">生物因子</div>
+                <div class="feature-desc">指纹、人脸、虹膜</div>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="definition-box" style="max-width: min(90vw, 800px); margin: 0 auto;">
+                <strong>数据加密：</strong>将明文与密钥结合，通过特定算法转换为密文，分为对称加密和非对称加密
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 32: Unit 6 - 密码安全实例
+     =========================================== -->
+<section class="slide example-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="example-badge reveal">安全对比</div>
+        <h2 class="slide-title reveal">强密码 vs 弱密码</h2>
+        <div class="example-comparison">
+            <div class="example-comparison-item bad reveal">
+                <div class="example-label">❌ 弱密码</div>
+                <div class="code-block" style="margin-top: 0.5rem; font-size: clamp(0.9rem, 1.5vw, 1.2rem);">
+                    123456<br>
+                    password<br>
+                    a1b2c3d4<br>
+                    20000101
+                </div>
+                <p style="font-size: var(--small-size); color: var(--text-dim); margin-top: 0.8rem;">
+                    ⚠️ 易被破解，包含连续数字、常见单词或纯数字
+                </p>
+            </div>
+            <div class="example-comparison-item good reveal">
+                <div class="example-label">✅ 强密码</div>
+                <div class="code-block" style="margin-top: 0.5rem; font-size: clamp(0.9rem, 1.5vw, 1.2rem);">
+                    Tr@in!2024<br>
+                    K#9mP$xL2q<br>
+                    MyH0use#2024<br>
+                    B!ue$Ky777
+                </div>
+                <p style="font-size: var(--small-size); color: var(--text-dim); margin-top: 0.8rem;">
+                    ✓ 包含大小写字母、数字、特殊字符，长度8位以上
+                </p>
+            </div>
+        </div>
+        <div class="warning-box reveal" style="margin-top: var(--content-gap); max-width: min(90vw, 800px); margin-left: auto; margin-right: auto;">
+            <div class="warning-box-title">⚠️ 网络诈骗识别</div>
+            <p style="color: var(--text-secondary); font-size: var(--small-size);">• "冒充老师/领导"收费 → 核实身份<br>• "中奖了，先交手续费" → 虚假诱饵<br>• "点击链接领取奖品" → 钓鱼网站<br>• "账号异常，需验证" → 官方核实</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 33: Unit 6 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit6">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第六单元 · 互联网安全与防范</h2>
+        <div class="quiz-content" id="quiz-content-unit6">
+            <!-- Quiz questions will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 34: Unit 7 Title
+     =========================================== -->
+<section class="slide unit-slide">
+    <div class="grid-bg"></div>
+    <span class="unit-number">07</span>
+    <div class="slide-content unit-content">
+        <div class="unit-badge reveal">Unit Seven</div>
+        <h2 class="slide-title reveal">
+            <span class="accent">生成式AI</span>赋能创新
+        </h2>
+        <p class="reveal" style="color: var(--text-secondary); font-size: var(--body-size);">
+            生成式人工智能的原理、应用与常见工具平台
+        </p>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 35: Unit 7 - AI生成流程
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">AI<span class="accent">生成流程</span></h2>
+        <div class="process-steps" style="max-width: min(90vw, 1000px); margin: 0 auto;">
+            <div class="step reveal">
+                <span class="step-num">1</span>
+                <span class="step-text"><strong>学习阶段：</strong>掌握语法、算法和常见模式</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">2</span>
+                <span class="step-text"><strong>理解阶段：</strong>提取关键信息，明确用户意图</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">3</span>
+                <span class="step-text"><strong>生成阶段：</strong>生成初步代码/内容框架</span>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">4</span>
+                <span class="step-text"><strong>优化阶段：</strong>迭代优化，自动检测并修正错误</span>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <div class="info-card" style="max-width: min(90vw, 1000px); margin: 0 auto;">
+                <span class="info-card-title">云存储优势</span>
+                <p style="color: var(--text-secondary);">稳定安全 · 灵活访问 · 协作共享 · 节省空间</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 36: Unit 7 - 常见工具
+     =========================================== -->
+<section class="slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <h2 class="slide-title reveal">常见互联网<span class="accent">工具平台</span></h2>
+        <div class="two-col">
+            <div class="reveal">
+                <h3 class="col-title">生成式AI</h3>
+                <div class="content-list">
+                    <li>豆包、DeepSeek</li>
+                    <li>文心一言、通义千问</li>
+                    <li>Kimi、智谱清言</li>
+                </div>
+                <h3 class="col-title" style="margin-top: 1.5rem;">云存储</h3>
+                <div class="content-list">
+                    <li>百度网盘、阿里云盘</li>
+                    <li>腾讯微盘、夸克网盘</li>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="col-title">云文档协作</h3>
+                <div class="content-list">
+                    <li>WPS云文档</li>
+                    <li>腾讯文档</li>
+                    <li>石墨文档</li>
+                </div>
+                <h3 class="col-title" style="margin-top: 1.5rem;">搜索引擎</h3>
+                <div class="content-list">
+                    <li>百度、必应</li>
+                    <li>搜狗、360搜索</li>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 37: Unit 7 - AI应用实例
+     =========================================== -->
+<section class="slide example-slide">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="example-badge reveal">AI应用示例</div>
+        <h2 class="slide-title reveal">生成式AI能做什么？</h2>
+        <div class="feature-grid">
+            <div class="feature-item reveal">
+                <div class="feature-icon">✍️</div>
+                <div class="feature-title">文本生成</div>
+                <div class="feature-desc">写文章、做总结、翻译</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🎨</div>
+                <div class="feature-title">图像生成</div>
+                <div class="feature-desc">文生图、图像编辑</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">💻</div>
+                <div class="feature-title">代码生成</div>
+                <div class="feature-desc">写程序、找bug、优化</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🎵</div>
+                <div class="feature-title">音频生成</div>
+                <div class="feature-desc">语音合成、音乐创作</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">数据分析</div>
+                <div class="feature-desc">处理数据、生成报告</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon">🎬</div>
+                <div class="feature-title">视频生成</div>
+                <div class="feature-desc">文生视频、视频编辑</div>
+            </div>
+        </div>
+        <div class="definition-box reveal" style="margin-top: var(--content-gap); max-width: min(90vw, 800px); margin: 0 auto;">
+            <strong>AI提示词示例：</strong><br>
+            "请帮我写一篇关于网络安全的短文，包含3个防范措施，字数300字左右"
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 38: Unit 7 Quiz
+     =========================================== -->
+<section class="slide quiz-slide" id="quiz-unit7">
+    <div class="grid-bg"></div>
+    <div class="slide-content">
+        <div class="quiz-badge reveal">单元测验</div>
+        <h2 class="slide-title reveal">第七单元 · 生成式AI赋能创新</h2>
+        <div class="quiz-content" id="quiz-content-unit7">
+            <!-- Quiz questions will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     SLIDE 39: Closing
+     =========================================== -->
+<section class="slide closing-slide">
+    <div class="grid-bg"></div>
+    <div class="particle" style="top: 20%; left: 10%;"></div>
+    <div class="particle magenta" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+    <div class="particle" style="top: 80%; left: 30%; animation-delay: 2s;"></div>
+    <div class="particle magenta" style="top: 40%; left: 70%; animation-delay: 3s;"></div>
+    <div class="scan-line"></div>
+
+    <div class="slide-content">
+        <div class="closing-emoji reveal-scale">🚀</div>
+        <h2 class="closing-title reveal">祝你考试顺利！</h2>
+        <p class="closing-text reveal">
+            祝你在信息技术期末考试中取得优异成绩！<br>
+            <span style="font-size: var(--small-size); color: var(--text-dim);">完成所有单元测验来检验学习成果吧！</span>
+        </p>
+        <div class="reveal" style="margin-top: var(--content-gap);">
+            <span class="meta-tag" style="cursor: pointer;" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">回到顶部</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     JAVASCRIPT: Enhanced with Quiz System
+     =========================================== -->
+<script>
+/* ===========================================
+   QUIZ DATA
+   =========================================== */
+const quizData = {
+    unit1: [
+        {
+            question: "中国接入互联网的时间是？",
+            options: ["1984年", "1994年", "2000年", "2008年"],
+            correct: 1,
+            explanation: "中国于1994年正式接入互联网，开启了中国互联网时代。"
+        },
+        {
+            question: "互联网的起源与哪个网络有关？",
+            options: ["Internet", "ARPANET", "LAN", "WAN"],
+            correct: 1,
+            explanation: "互联网的起源可以追溯到美国的阿帕网（ARPANET）。"
+        },
+        {
+            question: "下列哪项是「互联网+」的应用？",
+            options: ["传统出租车", "共享单车", "纸质书籍", "现金支付"],
+            correct: 1,
+            explanation: "共享单车是互联网+交通的典型应用，通过移动互联网实现自行车共享。"
+        },
+        {
+            question: "下列哪项不是互联网潜在风险？",
+            options: ["信息泄露", "网络成瘾", "信息过载", "在线学习"],
+            correct: 3,
+            explanation: "在线学习是互联网的积极应用，不是潜在风险。"
+        },
+        {
+            question: "互联网应用的特征不包括？",
+            options: ["操作简单", "交互性强", "只能文字交流", "图文声像并茂"],
+            correct: 2,
+            explanation: "互联网支持多媒体交流，包括文字、图片、音频、视频等。"
+        },
+        {
+            question: "下列哪项属于网络暴力行为？",
+            options: ["文明评论", "尊重他人", "网络辱骂", "传播正能量"],
+            correct: 2,
+            explanation: "网络辱骂是网络暴力的典型表现，应当坚决抵制。"
+        },
+        {
+            question: "如何防止网络成瘾？",
+            options: ["每天上网10小时", "合理安排时间", "熬夜上网", "上课玩手机"],
+            correct: 1,
+            explanation: "合理安排上网时间，保持学习、生活、娱乐的平衡是健康用网的关键。"
+        }
+    ],
+    unit2: [
+        {
+            question: "搜索时使用引号的作用是？",
+            options: ["强调关键词", "精确匹配", "排除关键词", "模糊搜索"],
+            correct: 1,
+            explanation: "使用引号可以让搜索引擎精确匹配完整的词组，提高搜索准确性。"
+        },
+        {
+            question: "下列哪个是视频文件格式？",
+            options: ["JPG", "MP3", "MP4", "TXT"],
+            correct: 2,
+            explanation: "MP4是常见的视频文件格式，JPG是图片，MP3是音频，TXT是文本。"
+        },
+        {
+            question: "全文搜索引擎的工作流程是？",
+            options: ["分类→索引→排序", "抓取→索引→排序", "抓取→排序→索引", "索引→抓取→排序"],
+            correct: 1,
+            explanation: "搜索引擎通过抓取网页内容，建立索引，然后按相关性排序展示结果。"
+        },
+        {
+            question: "下列哪个是音频文件格式？",
+            options: ["PNG", "GIF", "MP3", "AVI"],
+            correct: 2,
+            explanation: "MP3是常见的音频文件格式，PNG和GIF是图片，AVI是视频。"
+        },
+        {
+            question: "微视频制作的后期阶段包括？",
+            options: ["明确主题", "采集素材", "集成作品", "分析策划"],
+            correct: 2,
+            explanation: "后期制作主要包括作品的集成和发布，明确主题和采集素材属于前期和中期。"
+        },
+        {
+            question: "下列哪个不是信息交流平台？",
+            options: ["社交平台", "视频平台", "教育平台", "计算器"],
+            correct: 3,
+            explanation: "计算器是工具软件，不是信息交流平台。"
+        },
+        {
+            question: "互联网信息交流规范要求？",
+            options: ["可以传播谣言", "尊重原创", "随意转载", "泄露隐私"],
+            correct: 1,
+            explanation: "互联网交流应尊重原创，规范引用，抵制谣言，保护隐私。"
+        }
+    ],
+    unit3: [
+        {
+            question: "网页文件的扩展名是？",
+            options: [".doc", ".ppt", ".html", ".pdf"],
+            correct: 2,
+            explanation: ".html是网页文件的标准扩展名。"
+        },
+        {
+            question: "opacity的值范围是？",
+            options: ["0-100", "0.0-1.0", "1-10", "0-255"],
+            correct: 1,
+            explanation: "opacity属性的范围是0.0（完全透明）到1.0（完全不透明）。"
+        },
+        {
+            question: "下列哪个不是网页编辑工具？",
+            options: ["Dreamweaver", "VS Code", "Photoshop", "在线编辑器"],
+            correct: 2,
+            explanation: "Photoshop是图像处理软件，不是专门的网页编辑工具。"
+        },
+        {
+            question: "网站开发流程的正确顺序是？",
+            options: [
+                "规划→准备→开发→测试→发布→维护",
+                "开发→规划→准备→测试→发布",
+                "准备→规划→开发→发布→测试",
+                "规划→开发→测试→准备→发布"
+            ],
+            correct: 0,
+            explanation: "正确的流程是：规划→准备→开发→测试→发布→维护。"
+        },
+        {
+            question: "HTML标签分为哪两类？",
+            options: ["大标签和小标签", "单标签和双标签", "开标签和闭标签", "长标签和短标签"],
+            correct: 1,
+            explanation: "HTML标签分为单标签（如<br>）和双标签（如<p></p>）。"
+        },
+        {
+            question: "网站导航不包括？",
+            options: ["全局导航", "局部导航", "面包屑导航", "随机导航"],
+            correct: 3,
+            explanation: "随机导航不是标准的网站导航类型。"
+        },
+        {
+            question: "下列哪项不是互联网数据类型？",
+            options: ["文本数据", "图像数据", "用户行为数据", "纸质数据"],
+            correct: 3,
+            explanation: "纸质数据不是互联网上的数据类型。"
+        }
+    ],
+    unit4: [
+        {
+            question: "192.168.1.1是什么类型的地址？",
+            options: ["域名", "IPv4地址", "IPv6地址", "MAC地址"],
+            correct: 1,
+            explanation: "192.168.1.1是IPv4地址格式，属于私有地址范围。"
+        },
+        {
+            question: "哪个命令用于测试网络连通性？",
+            options: ["ipconfig", "ping", "tracert", "netstat"],
+            correct: 1,
+            explanation: "ping命令用于测试网络中不同设备的连通性。"
+        },
+        {
+            question: "IPv4地址由多少位二进制组成？",
+            options: ["16位", "32位", "64位", "128位"],
+            correct: 1,
+            explanation: "IPv4地址由32位二进制组成，通常表示为四个十进制数。"
+        },
+        {
+            question: "DNS系统的作用是？",
+            options: ["分配IP地址", "域名到IP地址转换", "加密数据", "防火墙"],
+            correct: 1,
+            explanation: "DNS（域名系统）负责将域名转换为对应的IP地址。"
+        },
+        {
+            question: "下列哪个是私有地址？",
+            options: ["8.8.8.8", "192.168.0.1", "202.96.128.86", "114.114.114.114"],
+            correct: 1,
+            explanation: "192.168.x.x是私有地址范围，用于内部网络。"
+        },
+        {
+            question: "HTTP协议的中文名称是？",
+            options: ["超文本传输协议", "文件传输协议", "邮件传输协议", "网络协议"],
+            correct: 0,
+            explanation: "HTTP是HyperText Transfer Protocol的缩写，中文是超文本传输协议。"
+        },
+        {
+            question: "电子邮件地址的正确格式是？",
+            options: ["用户名.邮件服务器", "用户名@邮件服务器", "邮件服务器#用户名", "邮件服务器/用户名"],
+            correct: 1,
+            explanation: "电子邮件地址的标准格式是：用户名@邮件服务器域名。"
+        },
+        {
+            question: "LAN和WAN分别代表？",
+            options: ["局域网和广域网", "广域网和局域网", "无线网和有线网", "内网和外网"],
+            correct: 0,
+            explanation: "LAN是Local Area Network（局域网），WAN是Wide Area Network（广域网）。"
+        }
+    ],
+    unit5: [
+        {
+            question: "在线学习平台不包括下列哪项？",
+            options: ["中国知网", "腾讯会议", "优酷视频", "国家中小学智慧教育平台"],
+            correct: 2,
+            explanation: "优酷是娱乐视频平台，不是专门的在线学习平台。"
+        },
+        {
+            question: "在线学习的特点不包括？",
+            options: ["打破时空限制", "只能一个人学习", "海量学习资源", "个性化学习"],
+            correct: 1,
+            explanation: "在线学习支持多人协同学习，不是只能一个人学习。"
+        },
+        {
+            question: "智能会议助手的功能不包括？",
+            options: ["语音识别", "自动记录", "智能摘要", "代替人类思考"],
+            correct: 3,
+            explanation: "AI是辅助工具，不能代替人类思考和决策。"
+        },
+        {
+            question: "「互联网+」重构工作模式的好处不包括？",
+            options: ["提升效率", "优化流程", "促进共享", "增加工作量"],
+            correct: 3,
+            explanation: "「互联网+」的目标是提高效率，而不是增加不必要的工作量。"
+        },
+        {
+            question: "下列哪个不是生成式AI平台？",
+            options: ["豆包", "WPS云文档", "Kimi", "通义千问"],
+            correct: 1,
+            explanation: "WPS云文档是办公协作软件，不是生成式AI平台。"
+        },
+        {
+            question: "电子导航主要依赖的系统不包括？",
+            options: ["GPS", "北斗", "GIS", "CPU"],
+            correct: 3,
+            explanation: "CPU是电脑的处理器，GPS、北斗、GIS是导航相关的系统。"
+        }
+    ],
+    unit6: [
+        {
+            question: "下列哪个密码最安全？",
+            options: ["123456", "password", "a1b2c3d4", "Tr@in!2024"],
+            correct: 3,
+            explanation: "Tr@in!2024包含大小写字母、数字和特殊字符，是最安全的密码。"
+        },
+        {
+            question: "收到「冒充老师收资料费」的信息，应该？",
+            options: ["立即转账", "删除并举报", "转发同学", "回复询问"],
+            correct: 1,
+            explanation: "遇到可疑信息应删除并举报，通过官方渠道核实真伪。"
+        },
+        {
+            question: "身份验证的三因素不包括？",
+            options: ["知识因子", "持有因子", "生物因子", "环境因子"],
+            correct: 3,
+            explanation: "身份验证的三因素是：知识因子、持有因子、生物因子。"
+        },
+        {
+            question: "下列哪项是网络诈骗？",
+            options: ["官方网站下载软件", "中奖链接领取奖品", "银行柜台办理业务", "正规购物平台购物"],
+            correct: 1,
+            explanation: "中奖链接是典型的网络诈骗手段，目的是骗取个人信息或钱财。"
+        },
+        {
+            question: "设置防火墙的目的是？",
+            options: ["加快网速", "防止病毒入侵", "增加信号", "节省流量"],
+            correct: 1,
+            explanation: "防火墙的主要作用是监控和过滤网络流量，防止恶意软件入侵。"
+        },
+        {
+            question: "数据加密技术将明文转换为？",
+            options: ["明文", "密文", "密码", "编码"],
+            correct: 1,
+            explanation: "数据加密将可读的明文转换为不可读的密文，保护数据安全。"
+        },
+        {
+            question: "下列哪项不是生物特征验证？",
+            options: ["指纹", "人脸", "密码", "虹膜"],
+            correct: 2,
+            explanation: "密码属于知识因子，不是生物特征验证。"
+        },
+        {
+            question: "发现个人信息泄露，应该？",
+            options: ["修改密码", "置之不理", "泄露给他人", "使用相同密码"],
+            correct: 0,
+            explanation: "发现信息泄露应立即修改相关密码，并及时报警或通知相关平台。"
+        }
+    ],
+    unit7: [
+        {
+            question: "下列哪个不是生成式AI平台？",
+            options: ["豆包", "Kimi", "百度网盘", "通义千问"],
+            correct: 2,
+            explanation: "百度网盘是云存储服务，不是生成式AI平台。"
+        },
+        {
+            question: "生成式AI生成代码的流程第一步是？",
+            options: ["生成代码", "学习语法", "提取信息", "迭代优化"],
+            correct: 1,
+            explanation: "AI首先需要学习编程语言的语法、算法和常见模式。"
+        },
+        {
+            question: "云存储的优势不包括？",
+            options: ["稳定安全", "灵活访问", "只能自己用", "协作共享"],
+            correct: 2,
+            explanation: "云存储支持多人协作共享，不是只能自己使用。"
+        },
+        {
+            question: "常见云文档平台不包括？",
+            options: ["WPS云文档", "腾讯文档", "石墨文档", "Windows记事本"],
+            correct: 3,
+            explanation: "记事本是本地文本编辑软件，不是云文档平台。"
+        },
+        {
+            question: "AI文生图的过程是？",
+            options: ["直接输出图片", "解析文本→生成图像", "文字转语音", "语音转文字"],
+            correct: 1,
+            explanation: "AI首先解析文本的语义，然后根据解析结果生成对应的图像。"
+        },
+        {
+            question: "演示文稿生成的最后一步是？",
+            options: ["分析内容", "提取关键信息", "设计布局", "生成完整文稿"],
+            correct: 3,
+            explanation: "最后一步是根据设计好的布局生成完整的演示文稿。"
+        }
+    ]
+};
+
+/* ===========================================
+   QUIZ CLASS
+   =========================================== */
+const quizInstances = [];
+
+class QuizSystem {
+    constructor(containerId, unitName, questions, unitIndex) {
+        this.container = document.getElementById(containerId);
+        this.unitName = unitName;
+        this.questions = questions;
+        this.unitIndex = unitIndex;
+        this.currentQuestion = 0;
+        this.score = 0;
+        this.answered = false;
+        this.instanceIndex = quizInstances.length;
+        quizInstances.push(this);
+        this.init();
+    }
+
+    init() {
+        this.renderQuiz();
+    }
+
+    renderQuiz() {
+        if (this.currentQuestion >= this.questions.length) {
+            this.showScore();
+            return;
+        }
+
+        const q = this.questions[this.currentQuestion];
+        const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+        let html = `
+            <div class="quiz-content">
+            <div class="quiz-progress reveal">
+                <span>题目 ${this.currentQuestion + 1} / ${this.questions.length}</span>
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" style="width: ${((this.currentQuestion + 1) / this.questions.length * 100)}%"></div>
+                </div>
+            </div>
+            <div class="quiz-question reveal">
+                <span class="quiz-question-num">Q${this.currentQuestion + 1}.</span>
+                ${q.question}
+            </div>
+            <div class="quiz-options">
+        `;
+
+        q.options.forEach((option, index) => {
+            html += `
+                <div class="quiz-option reveal" data-index="${index}">
+                    <span class="quiz-option-letter">${letters[index]}</span>
+                    <span class="quiz-option-text">${option}</span>
+                </div>
+            `;
+        });
+
+        html += `
+            </div>
+                <div class="quiz-feedback" id="quiz-feedback-${this.unitName}">
+                    <div class="quiz-feedback-title" id="feedback-title-${this.unitName}"></div>
+                    <div class="quiz-feedback-text" id="feedback-text-${this.unitName}"></div>
+                </div>
+                <button class="quiz-next-btn reveal" id="next-btn-${this.unitName}" style="display: none;">
+                    ${this.currentQuestion < this.questions.length - 1 ? '下一题 →' : '查看成绩'}
+                </button>
+            </div>
+        `;
+
+        this.container.innerHTML = html;
+        this.attachListeners();
+    }
+
+    attachListeners() {
+        const options = this.container.querySelectorAll('.quiz-option');
+        const nextBtn = document.getElementById(`next-btn-${this.unitName}`);
+
+        options.forEach(option => {
+            option.addEventListener('click', () => this.handleAnswer(parseInt(option.dataset.index)));
+        });
+
+        nextBtn.addEventListener('click', () => {
+            this.currentQuestion++;
+            this.answered = false;
+            this.renderQuiz();
+        });
+    }
+
+    handleAnswer(selectedIndex) {
+        if (this.answered) return;
+        this.answered = true;
+
+        const q = this.questions[this.currentQuestion];
+        const options = this.container.querySelectorAll('.quiz-option');
+        const feedback = document.getElementById(`quiz-feedback-${this.unitName}`);
+        const feedbackTitle = document.getElementById(`feedback-title-${this.unitName}`);
+        const feedbackText = document.getElementById(`feedback-text-${this.unitName}`);
+        const nextBtn = document.getElementById(`next-btn-${this.unitName}`);
+
+        options.forEach((option, index) => {
+            option.classList.remove('selected');
+            if (index === q.correct) {
+                option.classList.add('correct');
+            } else if (index === selectedIndex && selectedIndex !== q.correct) {
+                option.classList.add('incorrect');
+            }
+        });
+
+        if (selectedIndex === q.correct) {
+            this.score++;
+            feedback.className = 'quiz-feedback correct show';
+            feedbackTitle.textContent = '✓ 回答正确！';
+        } else {
+            feedback.className = 'quiz-feedback incorrect show';
+            feedbackTitle.textContent = '✗ 回答错误';
+        }
+
+        feedbackText.textContent = q.explanation;
+        nextBtn.style.display = 'inline-block';
+    }
+
+    showScore() {
+        const percentage = Math.round((this.score / this.questions.length) * 100);
+        let message = '';
+
+        if (percentage >= 90) {
+            message = '太棒了！你已经完全掌握了这个单元的知识！🎉';
+        } else if (percentage >= 70) {
+            message = '做得不错！继续巩固一下薄弱环节吧！💪';
+        } else if (percentage >= 50) {
+            message = '还需要再复习一下这个单元的内容哦！📚';
+        } else {
+            message = '建议重新学习这个单元，加油！💡';
+        }
+
+        let html = `
+            <div class="quiz-score-screen reveal">
+                <div class="quiz-score-text">${this.unitName} 测验完成！</div>
+                <div class="quiz-score-display">${this.score} / ${this.questions.length}</div>
+                <div class="quiz-score-message">${message}</div>
+                <div class="quiz-score-actions">
+                    <button class="quiz-retry-btn" data-quiz-index="${this.instanceIndex}">
+                        🔄 重新测验
+                    </button>
+                    <button class="quiz-continue-btn" onclick="presentation.goToSlide(presentation.currentSlide + 1)">
+                        继续学习 →
+                    </button>
+                </div>
+            </div>
+        `;
+
+        this.container.innerHTML = html;
+
+        // Attach retry button listener
+        const retryBtn = this.container.querySelector('.quiz-retry-btn');
+        if (retryBtn) {
+            retryBtn.addEventListener('click', () => this.retry());
+        }
+    }
+
+    retry() {
+        this.currentQuestion = 0;
+        this.score = 0;
+        this.answered = false;
+        this.renderQuiz();
+    }
+}
+
+/* ===========================================
+   INLINE EDITING SYSTEM
+   =========================================== */
+class InlineEditor {
+    constructor() {
+        this.isActive = false;
+        this.storageKey = 'slides_content_enhanced_' + Date.now();
+        this.editableElements = document.querySelectorAll('h1, h2, h3, p, li, .feature-title, .feature-desc, .step-text, .info-card-title, .col-title, .quiz-option-text');
+        this.toggleBtn = document.getElementById('editToggle');
+        this.hotzone = document.getElementById('editHotzone');
+        this.setupInteractions();
+        this.loadFromStorage();
+    }
+
+    setupInteractions() {
+        let hideTimeout = null;
+
+        this.toggleBtn.addEventListener('click', () => this.toggleEditMode());
+
+        this.hotzone.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+            this.toggleBtn.classList.add('show');
+        });
+
+        this.hotzone.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                if (!this.isActive) this.toggleBtn.classList.remove('show');
+            }, 400);
+        });
+
+        this.toggleBtn.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+        this.toggleBtn.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                if (!this.isActive) this.toggleBtn.classList.remove('show');
+            }, 400);
+        });
+
+        this.hotzone.addEventListener('click', () => this.toggleEditMode());
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+                e.preventDefault();
+                this.toggleEditMode();
+            }
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                this.saveToStorage();
+                this.showSaveNotification();
+            }
+        });
+    }
+
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        document.body.classList.toggle('editing', this.isActive);
+        this.toggleBtn.classList.toggle('active', this.isActive);
+
+        this.editableElements.forEach(el => {
+            el.setAttribute('contenteditable', this.isActive);
+        });
+    }
+
+    saveToStorage() {
+        const content = {};
+        this.editableElements.forEach((el, index) => {
+            content[index] = el.innerHTML;
+        });
+        localStorage.setItem(this.storageKey, JSON.stringify(content));
+    }
+
+    loadFromStorage() {
+        const saved = localStorage.getItem(this.storageKey);
+        if (saved) {
+            const content = JSON.parse(saved);
+            this.editableElements.forEach((el, index) => {
+                if (content[index]) el.innerHTML = content[index];
+            });
+        }
+    }
+
+    showSaveNotification() {
+        const notification = document.createElement('div');
+        notification.textContent = '✓ 已保存';
+        notification.style.cssText = `
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #00ffcc, #ff00aa);
+            color: #0a0f1c;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            z-index: 10002;
+            animation: fadeOut 2s ease forwards;
+        `;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 2000);
+    }
+}
+
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   =========================================== */
+class SlidePresentation {
+    constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.currentSlide = 0;
+        this.progressBar = document.getElementById('progressBar');
+        this.navDots = document.getElementById('navDots');
+
+        this.setupIntersectionObserver();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupProgressBar();
+        this.setupNavDots();
+        this.setupParticles();
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const index = Array.from(this.slides).indexOf(entry.target);
+                    this.currentSlide = index;
+                    this.updateProgressBar();
+                    this.updateNavDots();
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        this.slides.forEach(slide => observer.observe(slide));
+    }
+
+    setupKeyboardNav() {
+        document.addEventListener('keydown', (e) => {
+            if (e.target.getAttribute('contenteditable') === 'true') return;
+            if (document.body.classList.contains('editing')) return;
+
+            switch(e.key) {
+                case 'ArrowDown':
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    this.goToSlide(this.currentSlide + 1);
+                    break;
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    this.goToSlide(this.currentSlide - 1);
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    this.goToSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    this.goToSlide(this.slides.length - 1);
+                    break;
+            }
+        });
+    }
+
+    setupTouchNav() {
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    this.goToSlide(this.currentSlide + 1);
+                } else {
+                    this.goToSlide(this.currentSlide - 1);
+                }
+            }
+        }, { passive: true });
+    }
+
+    goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index >= this.slides.length) index = this.slides.length - 1;
+
+        this.slides[index].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setupProgressBar() {
+        this.updateProgressBar();
+    }
+
+    updateProgressBar() {
+        const progress = ((this.currentSlide + 1) / this.slides.length) * 100;
+        this.progressBar.style.width = progress + '%';
+    }
+
+    setupNavDots() {
+        this.slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.addEventListener('click', () => this.goToSlide(index));
+            this.navDots.appendChild(dot);
+        });
+        this.updateNavDots();
+    }
+
+    updateNavDots() {
+        const dots = this.navDots.querySelectorAll('.nav-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+
+    setupParticles() {
+        document.querySelectorAll('.particle').forEach((particle, i) => {
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = (i * 0.5) + 's';
+        });
+    }
+}
+
+// Add fadeOut animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeOut {
+        0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        70% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize quizzes
+const quizzes = {
+    unit1: null,
+    unit2: null,
+    unit3: null,
+    unit4: null,
+    unit5: null,
+    unit6: null,
+    unit7: null
+};
+
+// Initialize after DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Create quiz instances with unit indices
+    quizzes.unit1 = new QuizSystem('quiz-content-unit1', '第一单元', quizData.unit1, 0);
+    quizzes.unit2 = new QuizSystem('quiz-content-unit2', '第二单元', quizData.unit2, 1);
+    quizzes.unit3 = new QuizSystem('quiz-content-unit3', '第三单元', quizData.unit3, 2);
+    quizzes.unit4 = new QuizSystem('quiz-content-unit4', '第四单元', quizData.unit4, 3);
+    quizzes.unit5 = new QuizSystem('quiz-content-unit5', '第五单元', quizData.unit5, 4);
+    quizzes.unit6 = new QuizSystem('quiz-content-unit6', '第六单元', quizData.unit6, 5);
+    quizzes.unit7 = new QuizSystem('quiz-content-unit7', '第七单元', quizData.unit7, 6);
+});
+
+// Initialize
+const editor = new InlineEditor();
+const presentation = new SlidePresentation();
+</script>
+</body>
+</html>
