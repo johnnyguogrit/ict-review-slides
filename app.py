@@ -1,6 +1,5 @@
 import streamlit as st
 from pathlib import Path
-import streamlit.components.v1 as components
 
 # Page config
 st.set_page_config(
@@ -22,16 +21,9 @@ st.markdown("""
     /* Main container */
     .stApp {
         background: linear-gradient(135deg, #0a0f1c 0%, #1a1f2e 50%, #0a1a0f 100%);
-        min-height: 100vh;
     }
 
     /* Hero section */
-    .hero-section {
-        text-align: center;
-        padding: 3rem 1rem 2rem;
-        animation: fadeInUp 1s ease-out;
-    }
-
     .hero-title {
         font-size: clamp(2rem, 6vw, 4rem);
         font-weight: 800;
@@ -39,6 +31,7 @@ st.markdown("""
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        text-align: center;
         margin-bottom: 1rem;
         text-shadow: 0 0 60px rgba(0, 255, 204, 0.3);
     }
@@ -46,44 +39,56 @@ st.markdown("""
     .hero-subtitle {
         font-size: clamp(1rem, 2.5vw, 1.5rem);
         color: rgba(255, 255, 255, 0.7);
+        text-align: center;
         margin-bottom: 2rem;
     }
 
-    /* Cards container */
-    .cards-container {
+    /* Stats section */
+    .stats-section {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        padding: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #00ffcc, #00ff88);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .stat-label {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Grade cards container */
+    .cards-wrapper {
         display: flex;
         gap: 2rem;
         justify-content: center;
         flex-wrap: wrap;
-        padding: 1rem 2rem 3rem;
-        max-width: 1400px;
-        margin: 0 auto;
+        padding: 1rem;
     }
 
     /* Grade cards */
     .grade-card {
-        flex: 1;
         min-width: 320px;
-        max-width: 500px;
+        max-width: 450px;
         padding: 3rem 2rem;
         border-radius: 24px;
         text-align: center;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
         overflow: hidden;
-    }
-
-    .grade-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        z-index: 0;
     }
 
     .grade-card-7 {
@@ -92,54 +97,21 @@ st.markdown("""
         box-shadow: 0 10px 40px rgba(0, 255, 204, 0.1);
     }
 
-    .grade-card-7::before {
-        background: linear-gradient(135deg, rgba(0, 255, 204, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);
-    }
-
-    .grade-card-7:hover {
-        transform: translateY(-8px) scale(1.02);
-        border-color: rgba(0, 255, 204, 0.6);
-        box-shadow: 0 20px 60px rgba(0, 255, 204, 0.25);
-    }
-
     .grade-card-8 {
         background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
         border: 2px solid rgba(0, 255, 136, 0.3);
         box-shadow: 0 10px 40px rgba(0, 255, 136, 0.1);
     }
 
-    .grade-card-8::before {
-        background: linear-gradient(135deg, rgba(0, 255, 136, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);
-    }
-
-    .grade-card-8:hover {
-        transform: translateY(-8px) scale(1.02);
-        border-color: rgba(0, 255, 136, 0.6);
-        box-shadow: 0 20px 60px rgba(0, 255, 136, 0.25);
-    }
-
-    .grade-card:hover::before {
-        opacity: 1;
-    }
-
     .grade-icon {
         font-size: 4rem;
         margin-bottom: 1rem;
-        position: relative;
-        z-index: 1;
-        animation: float 3s ease-in-out infinite;
-    }
-
-    .grade-card-8 .grade-icon {
-        animation-delay: 0.5s;
     }
 
     .grade-title {
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        position: relative;
-        z-index: 1;
     }
 
     .grade-card-7 .grade-title {
@@ -156,8 +128,6 @@ st.markdown("""
         font-size: 1rem;
         color: rgba(255, 255, 255, 0.6);
         margin-bottom: 1.5rem;
-        position: relative;
-        z-index: 1;
     }
 
     .grade-features {
@@ -165,8 +135,6 @@ st.markdown("""
         padding: 0;
         margin: 1.5rem 0;
         text-align: left;
-        position: relative;
-        z-index: 1;
     }
 
     .grade-features li {
@@ -190,72 +158,42 @@ st.markdown("""
         color: #00ff88;
     }
 
-    .start-button {
-        display: inline-block;
+    /* Streamlit button styling override */
+    .stButton > button {
+        width: 100%;
         padding: 1rem 3rem;
         border-radius: 50px;
         font-size: 1.1rem;
         font-weight: 600;
-        text-decoration: none;
+        border: none;
+        cursor: pointer;
         transition: all 0.3s ease;
-        position: relative;
-        z-index: 1;
         margin-top: 1rem;
     }
 
-    .grade-card-7 .start-button {
+    .grade-card-7 .stButton > button {
         background: linear-gradient(135deg, #00ffcc, #00d4ff);
         color: #0a0f1c;
         box-shadow: 0 5px 20px rgba(0, 255, 204, 0.3);
     }
 
-    .grade-card-7 .start-button:hover {
+    .grade-card-7 .stButton > button:hover {
         transform: scale(1.05);
         box-shadow: 0 8px 30px rgba(0, 255, 204, 0.5);
     }
 
-    .grade-card-8 .start-button {
+    .grade-card-8 .stButton > button {
         background: linear-gradient(135deg, #00ff88, #00d4ff);
         color: #0a1a0f;
         box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
     }
 
-    .grade-card-8 .start-button:hover {
+    .grade-card-8 .stButton > button:hover {
         transform: scale(1.05);
         box-shadow: 0 8px 30px rgba(0, 255, 136, 0.5);
     }
 
-    /* Stats section */
-    .stats-section {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        padding: 2rem;
-        flex-wrap: wrap;
-    }
-
-    .stat-item {
-        text-align: center;
-        animation: fadeInUp 1s ease-out;
-        animation-delay: 0.3s;
-    }
-
-    .stat-number {
-        font-size: 2.5rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #00ffcc, #00ff88);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .stat-label {
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
-    }
-
-    /* Features grid */
+    /* Features section */
     .features-section {
         max-width: 1000px;
         margin: 0 auto;
@@ -275,13 +213,6 @@ st.markdown("""
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
         text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .feature-item:hover {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(0, 255, 204, 0.3);
-        transform: translateY(-5px);
     }
 
     .feature-icon {
@@ -302,145 +233,40 @@ st.markdown("""
         font-size: 0.85rem;
     }
 
-    /* Animations */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* Full height for presentation */
+    .fullscreen-html {
+        height: calc(100vh - 200px);
     }
 
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    /* Particle effect */
-    .particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        overflow: hidden;
-        z-index: -1;
-    }
-
-    .particle {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: rgba(0, 255, 204, 0.3);
-        border-radius: 50%;
-        animation: rise 10s infinite;
-    }
-
-    @keyframes rise {
-        0% {
-            opacity: 0;
-            transform: translateY(100vh) scale(0);
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-            transform: translateY(-100vh) scale(1);
-        }
-    }
-
-    /* Full screen presentation */
-    .presentation-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 1000;
-    }
-
-    .presentation-container iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
-    .back-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1001;
-        padding: 0.75rem 1.5rem;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
-
-    .back-button:hover {
-        background: rgba(0, 255, 204, 0.2);
-        border-color: rgba(0, 255, 204, 0.5);
+    .fullscreen-html iframe {
+        height: calc(100vh - 200px) !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Get URL parameters to show presentation
-url_params = st.query_params
-show_presentation = url_params.get("show", None)
+# Session state for navigation
+if 'current_view' not in st.session_state:
+    st.session_state.current_view = 'landing'
 
-# If showing presentation, display it full screen
-if show_presentation:
-    grade_num = url_params.get("grade", "7")
+# Navigation function
+def go_to_landing():
+    st.session_state.current_view = 'landing'
+    st.rerun()
 
-    st.markdown("""
-    <button class="back-button" onclick="history.back()">← 返回选择</button>
-    """, unsafe_allow_html=True)
+def go_to_grade7():
+    st.session_state.current_view = 'grade7'
+    st.rerun()
 
-    html_file = f"{'七' if grade_num == '7' else '八'}年级信息技术复习提纲_增强版.html"
+def go_to_grade8():
+    st.session_state.current_view = 'grade8'
+    st.rerun()
 
-    # Read HTML file
-    html_path = Path(html_file)
-    if html_path.exists():
-        with open(html_path, 'r', encoding='utf-8') as f:
-            html_content = f.read()
-
-        # Display the HTML
-        components.html(html_content, height=1000, scrolling=True)
-    else:
-        st.error(f"文件未找到: {html_file}")
-
-# Landing page
-else:
+# Landing Page
+if st.session_state.current_view == 'landing':
     # Hero section
     st.markdown("""
-    <div class="particles">
-        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
-        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
-        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
-        <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
-        <div class="particle" style="left: 90%; animation-delay: 4.5s;"></div>
-    </div>
-
-    <div class="hero-section">
-        <div class="hero-title">📚 信息技术复习提纲</div>
-        <div class="hero-subtitle">八年级期末考试 · 互动式学习平台</div>
-    </div>
+    <div class="hero-title">📚 信息技术复习提纲</div>
+    <div class="hero-subtitle">八年级期末考试 · 互动式学习平台</div>
     """, unsafe_allow_html=True)
 
     # Stats
@@ -466,7 +292,7 @@ else:
 
     with col1:
         st.markdown("""
-        <div class="grade-card grade-card-7" onclick="window.open('?show=1&grade=7', '_self')">
+        <div class="grade-card grade-card-7">
             <div class="grade-icon">📘</div>
             <div class="grade-title">七年级</div>
             <div class="grade-subtitle">互联网与信息处理</div>
@@ -479,13 +305,13 @@ else:
                 <li>网络安全与防范</li>
                 <li>人工智能初识</li>
             </ul>
-            <div class="start-button">开始复习 →</div>
         </div>
         """, unsafe_allow_html=True)
+        st.button("📘 开始复习", key="btn7", on_click=go_to_grade7)
 
     with col2:
         st.markdown("""
-        <div class="grade-card grade-card-8" onclick="window.open('?show=1&grade=8', '_self')">
+        <div class="grade-card grade-card-8">
             <div class="grade-icon">📗</div>
             <div class="grade-title">八年级</div>
             <div class="grade-subtitle">物联网技术</div>
@@ -497,9 +323,9 @@ else:
                 <li>物联网创新应用</li>
                 <li>物联网安全与发展</li>
             </ul>
-            <div class="start-button">开始复习 →</div>
         </div>
         """, unsafe_allow_html=True)
+        st.button("📗 开始复习", key="btn8", on_click=go_to_grade8)
 
     # Features section
     st.markdown("""
@@ -533,3 +359,37 @@ else:
         <p style="margin-top: 0.5rem;">信息技术复习提纲 · 期末备考专用</p>
     </div>
     """, unsafe_allow_html=True)
+
+# Grade 7 Presentation
+elif st.session_state.current_view == 'grade7':
+    st.button("← 返回选择", on_click=go_to_landing)
+
+    html_file = "七年级信息技术复习提纲_增强版.html"
+    html_path = Path(html_file)
+
+    if html_path.exists():
+        with open(html_path, 'r', encoding='utf-8') as f:
+            html_content = f.read()
+
+        st.markdown('<div class="fullscreen-html">', unsafe_allow_html=True)
+        st.components.v1.html(html_content, height=1000, scrolling=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+    else:
+        st.error(f"文件未找到: {html_file}")
+
+# Grade 8 Presentation
+elif st.session_state.current_view == 'grade8':
+    st.button("← 返回选择", on_click=go_to_landing)
+
+    html_file = "八年级信息技术复习提纲_增强版.html"
+    html_path = Path(html_file)
+
+    if html_path.exists():
+        with open(html_path, 'r', encoding='utf-8') as f:
+            html_content = f.read()
+
+        st.markdown('<div class="fullscreen-html">', unsafe_allow_html=True)
+        st.components.v1.html(html_content, height=1000, scrolling=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+    else:
+        st.error(f"文件未找到: {html_file}")
